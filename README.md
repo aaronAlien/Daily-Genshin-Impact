@@ -11,6 +11,8 @@
     * Daily Check-In
 
 * search for character
+    * basic character details
+    * card image
 
 ### too add
 * reset countdowns:
