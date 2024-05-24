@@ -1,2 +1,16 @@
 # daily-genshin-impact
- application for Genshin Impact players to check daily available materials and more :)
+## *For Genshin Impact players to check daily available materials and more.*
+
+* you will find, depending on the weekday:
+    * talent books and their corresponding characters
+    * weapon materials and their corresponding weapons
+
+* links to: 
+    * Official Genshin Impact Wiki
+    * Official Interacive Map
+    * Daily Check-In
+
+* reset countdowns:
+    * Event Wish
+    * Abyss
+    * Battle Pass
