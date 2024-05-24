@@ -24,7 +24,10 @@ const currentDateString = currentDate.toLocaleDateString("en-UK", {
 
 // weekday output
 dayDisplay.textContent = `${week[dayIndex]}`;
-
+dayDisplay.style.color = 'var(--light-font)';
+dayDisplay.style.marginLeft = '2rem';
+dayDisplay.style.borderLeft = '1px solid white';
+dayDisplay.style.padding = '1rem';
 
 fetch("https://genshin.jmp.blue/materials/talent-book")
   .then((res) => res.json())
@@ -100,12 +103,10 @@ async function fetchData() {
 
     // search output - image
     const imgContainer = document.createElement('div');
-    imgContainer.style.width = '300';
-    imgContainer.style.height = '450';
 
     const img = document.createElement('img');
-    img.style.width = '100%';
-    img.style.height = '100%';
+    img.style.width = '300px';
+    img.style.height = '450px';
     img.style.objectFit = 'contain';
     img.src = url;
 
