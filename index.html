@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./DGI.css" />
     <script defer src="./DGI.js"></script>
     <title>Genshin Daily</title>
@@ -16,10 +12,8 @@
   <body>
     <nav id="navbar" class="nav">
       <h1 id="nav-title">Genshin Daily</h1>
+        <h2 id="day-display"></h2>
     </nav>
-    <div class="date">
-      <h3 id="day-display">.</h3>
-    </div>
     <div class="card">
       <div class="grid">
         <div class="weapons">
@@ -45,23 +39,10 @@
         </div>
       </div>
       <div class="links">
-        <a
-          target="_blank"
-          href="https://act.hoyolab.com/ys/app/interactive-map/index.html?bbs_presentation_style=no_header&utm_id=2&utm_medium=tool&utm_source=hoyolab&bbs_theme=dark&bbs_theme_device=1&lang=en-us#/map/2?center=-2126.00,-5325.00&zoom=-1.00&shown_types="
-        ></a>
-        <button id="map">Interactive Map</button>
+        <button class="btn" id="mapBtn">Interactive Map</button>
+        <button class="btn" id="checkInBtn">Check In</button>
 
-        <a
-          target="_blank"
-          href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481"
-        ></a>
-        <button id="check-in">Check In</button>
-
-        <a
-          target="_blank"
-          href="https://wiki.hoyolab.com/pc/genshin/home?bbs_presentation_style=fullscreen&utm_source=hoyolab&utm_medium=tools&utm_id=2&lang=en-us&bbs_theme=dark&bbs_theme_device=1"
-        ></a>
-        <button id="wiki">Genshin Impact Wiki</button>
+        <button class="btn" id="wikiBtn">Genshin Impact Wiki</button>
       </div>
     </div>
     <div class="footer"></div>
