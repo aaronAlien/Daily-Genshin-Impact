@@ -10,6 +10,9 @@
     * Official Interacive Map
     * Daily Check-In
 
+* search for character
+
+### too add
 * reset countdowns:
     * Event Wish
     * Abyss

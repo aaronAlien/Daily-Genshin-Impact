@@ -69,6 +69,57 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
   })
   .catch((error) => console.log(error));
 
+// character search
+
+async function fetchData() {
+
+  try {
+    const mySearch = document
+      .getElementById("mySearch")
+      .value.toLocaleLowerCase();
+
+    const response = await fetch(
+      `https://genshin.jmp.blue/characters/${mySearch}`);
+    const response2 = await fetch(
+      `https://genshin.jmp.blue/characters/${mySearch}/card`);
+
+    if (!response.ok || !response2.ok) {
+      throw new Error("Could not fetch resource");
+    } 
+
+    const data = await response.json();
+    const dataArray3 = Object.values(data);
+    //console.log(dataArray3);
+
+    const imgData = await response2.blob();
+    const url = URL.createObjectURL(imgData);
+
+    // search output - text
+    const searchOutput = document.getElementById('searchOutput');
+    searchOutput.innerHTML += dataArray3.slice(0,12).join(' - ');
+
+    // search output - image
+    const imgContainer = document.createElement('div');
+    imgContainer.style.width = '300';
+    imgContainer.style.height = '450';
+
+    const img = document.createElement('img');
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'contain';
+    img.src = url;
+
+    // append image to container - then append container to searchOutput
+    imgContainer.appendChild(img);
+    searchOutput.append(imgContainer);
+
+    //console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const searchBtn = document.getElementById('searchBtn').addEventListener('click', fetchData);
   
 // links function
 const openLink = (url) => {
