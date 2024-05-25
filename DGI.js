@@ -94,16 +94,20 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
 // character search
 
 async function fetchData() {
+
+
   try {
     const mySearch = document
       .getElementById("mySearch")
       .value.toLocaleLowerCase();
+    
+      mySearch.value = '';
 
     const response = await fetch(
       `https://genshin.jmp.blue/characters/${mySearch}`
     );
     const response2 = await fetch(
-      `https://genshin.jmp.blue/characters/${mySearch}/card`
+      `https://genshin.jmp.blue/characters/${mySearch}/portrait`
     );
 
     if (!response.ok || !response2.ok) {
@@ -117,9 +121,12 @@ async function fetchData() {
     const imgData = await response2.blob();
     const url = URL.createObjectURL(imgData);
 
+    // search output
+    //searchOutput.innerText = '';
+
     // search output - text
     const searchOutput = document.getElementById("searchOutput");
-    searchOutput.innerHTML += dataArray3.slice(0, 12).join(" - ");
+    searchOutput.innerHTML = dataArray3.slice(0, 12).join(" - ");
 
     // search output - image
     const imgContainer = document.createElement("div");
