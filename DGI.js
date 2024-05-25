@@ -58,6 +58,7 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
   })
   .catch((error) => console.log(error));
 
+
 fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .then((res) => res.json())
   .then((data) => {
@@ -70,6 +71,9 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
       let currentDayWeapons = document.getElementById("currentDayWeapons");
       if (weapon.availability.includes(week[dayIndex])) {
         currentDayWeapons.innerHTML += `<h4>${weapon.items[0].name}</h4>
+        
+        `
+        /*
         <p>${weapon.weapons
           .map(
             (weapon) =>
@@ -77,7 +81,7 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
               weapon.replace(/-/g, " ").slice(1)
           )
           .join(" | ")}
-        </p>`;
+        </p>`;*/
       }
     });
     if (!Array.isArray(data)) {
@@ -85,6 +89,7 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
     }
   })
   .catch((error) => console.log(error));
+
 
 // character search
 
@@ -164,3 +169,15 @@ const wikiBtn = document
   .addEventListener("click", () =>
     openLink("https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki")
   );
+
+  fetch("https://genshin.jmp.blue/weapons/deathmatch/icon")
+  .then(response => response.blob())
+  .then(imageBlob => {
+    const imageUrl = URL.createObjectURL(imageBlob);
+    const imageElement = document.createElement('img');
+    imageElement.src = imageUrl;
+    imageElement.style.width = '50px';
+    imageElement.style.borderRadius = '10px';
+    document.body.appendChild(imageElement);
+  })
+  .catch((error) => console.log(error));
