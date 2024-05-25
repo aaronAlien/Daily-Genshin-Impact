@@ -1,117 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100..800&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Croissant+One&family=Syne:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100..800&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Croissant+One&family=Syne:wght@400..800&display=swap");
 
 :root {
-    --color-a: #0a0a0a; /*background*/
-    --color-b: #406658; /*card*/
-    --color-c: #4b4b4b; /*primary 1 green*/
-    --color-d: #223b3f; /*primary 2 dark teal*/
-    --color-e: #C89295; /*accent purple*/
-    --color-f: #80b7c2; /*accent blue*/
-    --light-font: #ebeaeb; /* dark font*/
-    --BODY-font-family: "Syne", sans-serif;
-    --BODY-font-size: 1.6rem;
-    --BODY-font-style: normal;
-    --BODY-font-weight: 400;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    font-family: var(--BODY-font-family);
-    scroll-behavior: smooth;
-    font-size: 62.5%;
-    line-height: 1.75;
-  }
-  
-  /* 65.5% = default, 1rem = 10px */
-  
-  body {
-    background: var(--color-a);
-    font-size: var(--BODY-font-size)
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    border-bottom: 4px solid #84679e;
-    width: 100%;
-    padding: 2rem 4rem;
-    position: fixed;
-    z-index: 10;
-  }
+  --color-a: #0a0a0a;
+  --color-b: #406658;
+  --color-c: #4b4b4b;
+  --color-d: #223b3f;
+  --color-e: #c89295;
+  --color-f: #80b7c2;
+  --light-font: #ebeaeb;
+  --BODY-font-family: "Syne", sans-serif;
+  --HEAD-font-family: "Croissant One", Impact, Haettenschweiler, "Arial Narrow Bold",
+  sans-serif;
+  --BODY-font-size: 1.6rem;
+  --BODY-font-style: normal;
+  --BODY-font-weight: 400;
+}
 
-  #nav-title {
-    color: var(--color-f);
-    font-family: 'Croissant One', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 4em;
-    text-decoration: none;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  ul {
-    list-style: none;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .date {
-    background: var(--color-e);
-    max-width: 50%;
-    border-radius: 35px;
-    font-size: 2rem;
-    text-align: center;
-    padding: 1rem;
-    z-index: -1;
-  }
+html {
+  font-family: var(--BODY-font-family);
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  line-height: 1.75;
+}
 
-  #checkInBtn {
-    margin-left: 2rem;
-  }
+/* 65.5% = default, 1rem = 10px */
 
-  /*#checkInBtn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 40;
-  }*/
+body {
+  background: #1f0318;
+  font-size: var(--BODY-font-size);
+  display: flex;
+  flex-direction: column;
+}
 
-  .card {
-    background: var(--color-b);
-    max-width: 90%;
-    color: var(--light-font);
-    border-radius: 55px;
-    margin: 0 auto;
-    /*margin: 50px auto;*/
-    padding: 25px 45px;
-    text-align: center;
-    position: relative;
-    display: block;
-    top: 10em;
-  }
-  
-  .boldSubHead {
-    font-weight: bold;
-    font-size: 2rem;
-    border: 2px solid var(--color-e);
-    border-radius: 25px;
-  }
-  
-  /*.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    grid-gap: 3rem;
-    font-size: 1.6rem;
-    margin: 0 auto;
-    flex: auto;
-  }*/
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  background: #1f0318;
+  width: 100%;
+  padding: 2rem 4rem;
+  position: fixed;
+  z-index: 10;
+}
 
+#nav-title {
+  color: var(--light-font);
+  font-family: var(--HEAD-font-family);
+  font-size: 4em;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.date {
+  background: var(--color-e);
+  max-width: 50%;
+  border-radius: 35px;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.322);
+  max-width: 90%;
+  color: var(--light-font);
+  border-radius: 5rem;
+  margin: 10em auto;
+  padding: 25px 45px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
 
 .grid {
   display: grid;
@@ -120,6 +94,9 @@
   grid-gap: 3rem;
   font-size: 1.6rem;
   margin: 0 auto;
+  max-width: 100%;
+  z-index: 5;
+
 }
 
 .grid > *:nth-child(3) {
@@ -128,47 +105,74 @@
   justify-self: center;
   text-align: center;
 }
-  
-  ul,
-  li {
-    list-style: none;
-  }
-  
-  .weapons,
-  .books {
-    background: var(--color-c);
-    border-radius: 35px;
-    color: var(--light-font);
-    padding: 10px 15px;
-  }
-  
-  #currentDayWeapons,
-  #currentDayBooks {
-    display: block;
-    margin: 0px 30px;
-    padding: 10px 15px;
-   white-space: initial;
-  }
-  
-  .search {
-    background: var(--color-d);
-    border-radius: 35px;
-    color: var(--color-g);
-    padding: 10px 15px;
-  }
 
-  .links {
-    margin-top: 3rem;
-  }
+ul,
+li {
+  list-style: none;
+}
 
- .btn {
-    background: var(--color-f);
-    border-radius: 25px;
-    padding: 1.6rem;
-    font-size: 1.6rem;
-  }
+.boldSubHead {
+  font-family: var(--HEAD-font-family);
+  margin: 2rem;
+  padding: 1.6rem;
+  color: var(--light-font);
+  font-weight: bold;
+  font-size: 2em;
+  border-bottom: 2px solid var(--color-e);
+}
 
-  .btn:hover {
-    text-decoration: underline;
+.weapons,
+.books {
+  background: var(--color-b);
+  color: var(--light-font);
+  padding: 10px 15px;
+  font-size: 2rem;
+  border-radius: 5rem;
+}
+
+#currentDayWeapons,
+#currentDayBooks {
+  display: block;
+  margin: 0px 30px;
+  padding: 10px 15px;
+  white-space: initial;
+}
+
+.search {
+  background: var(--color-d);
+  border-radius: 35px;
+  color: var(--color-g);
+  padding: 10px 15px;
+}
+
+.links {
+  margin-top: 3rem;
+}
+
+.btn {
+  background: var(--color-f);
+  border-radius: 25px;
+  padding: 1.6rem;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  text-decoration: underline;
+}
+
+/*
+  .nav {
+    display: grid;
+    grid-template-columns: 50% 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 0 auto;
+    align-items: center;
+    gap: 3rem;
+    border-bottom: 4px solid #B8A9C7;
+    border-radius: 3.6rem;
+    background: #1F0318;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
   }
-  
+*/
