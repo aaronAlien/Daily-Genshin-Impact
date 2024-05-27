@@ -1,4 +1,3 @@
-
 // weekdays
 
 const week = [
@@ -27,8 +26,6 @@ const currentDateString = currentDate.toLocaleDateString("en-UK", {
 dayDisplay.textContent = `${week[dayIndex]}`;
 dayDisplay.style.color = "var(--light-font)";
 
-
-
 // CHARACTERS
 
 fetch("https://genshin.jmp.blue/materials/talent-book")
@@ -44,8 +41,7 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
     dataArray.forEach((book) => {
       if (book.availability.includes(week[dayIndex])) {
         let currentDayBooks = document.getElementById("currentDayBooks");
-        currentDayBooks.innerHTML += 
-        `<h4>${book.items[0].name}</h4>`
+        currentDayBooks.innerHTML += `<h4>${book.items[0].name}</h4>`;
       }
 
       let todaysCharacters = book.characters;
@@ -53,12 +49,19 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
 
       todaysCharacters.forEach((char) => {
         // console.log(book)
-        console.log(`Fetching character icon for ${char}`);
+        //console.log(`Fetching character icon for ${char}`);
+
+        // eliminate traveler icons - not displaying - fix later
+        if (char.startsWith("traveler-")) return;
+
         const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
-        const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon` ;
-        const charImg = document.createElement('img');
+        const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
+        const charImg = document.createElement("img");
+        // search for either icon
+
         charImg.src = charUrl1 || charUrl2;
-        charImg.style.width = '50px';
+        charImg.style.width = "50px";
+        charImg.style.margin = '5px';
         charImg.alt = char;
         currentDayBooks.appendChild(charImg);
       });
@@ -69,7 +72,6 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
     }
   })
   .catch((error) => console.log(error));
-
 
 /*
 fetch("https://genshin.jmp.blue/materials/talent-book")
@@ -102,7 +104,7 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
   })
   .catch((error) => console.log(error));*/
 
-  // WEAPONS
+// WEAPONS
 
 fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .then((res) => res.json())
@@ -112,6 +114,18 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
 
     dataArray2.forEach((mat) => {
       if (mat.availability.includes(week[dayIndex])) {
+
+        /*console.log(`Fetching ascension material icon for ${mat.items[0].name}`);
+
+        const matName = mat.items[0].name.split(' ').join('-').toLowerCase();
+        console.log(matName);
+
+        const urlMat = `https://genshin.jmp.blue/materials/weapon-ascension/${mat.matName}`;
+        const imageElementMat = document.createElement('img');
+        imageElementMat.src = urlMat;
+        imageElementMat.style.width = '50px';
+        currentDayWeapons.appendChild(imageElementMat);
+*/
         let currentDayWeapons = document.getElementById("currentDayWeapons");
         currentDayWeapons.innerHTML += `<h4>${mat.items[0].name}</h4>`;
         //console.log(mat.items[1]);
@@ -122,13 +136,13 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
       todaysWeapons.forEach((weapon) => {
         //console.log(weapon);
 
-        console.log(`Fetching weapon icon for ${weapon}`);
+        //console.log(`Fetching weapon icon for ${weapon}`);
 
         const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
-        const imageElement = document.createElement('img');
+        const imageElement = document.createElement("img");
         imageElement.src = url;
-        imageElement.style.width = '50px';
-        imageElement.style.borderRadius = '10px';
+        imageElement.style.width = "50px";
+        imageElement.style.margin = '5px';
         imageElement.alt = weapon;
         currentDayWeapons.appendChild(imageElement);
       });
@@ -173,8 +187,7 @@ async function fetchData() {
 
     // search output - text
     const searchOutput = document.getElementById("searchOutput");
-    searchOutput.innerHTML = 
-    `Name: ${dataArray3[0]} ... "${dataArray3[1]}" ... ${dataArray3[4]}\n
+    searchOutput.innerHTML = `Name: ${dataArray3[0]} ... "${dataArray3[1]}" ... ${dataArray3[4]}\n
     Nation: ${dataArray3[5]}\n
     Vision: ${dataArray3[2]}\n
     Weapon: ${dataArray3[3]}\n
@@ -182,9 +195,9 @@ async function fetchData() {
     Birthday: ${dataArray3[10]}\n
     Description: ${dataArray3[11]}`;
 
-    searchOutput.style.maxWidth = '70%';
-    searchOutput.style.border = '2px solid var(--color-f)';
-    searchOutput.style.borderRadius = '4rem';
+    searchOutput.style.maxWidth = "70%";
+    searchOutput.style.border = "2px solid var(--color-f)";
+    searchOutput.style.borderRadius = "4rem";
 
     // search output - image
     const imgContainer = document.createElement("div");
@@ -214,26 +227,6 @@ const searchBtn = document
 const openLink = (url) => {
   window.open(url, "_blank");
 };
-
-const mapBtn = document
-  .getElementById("mapBtn")
-  .addEventListener("click", () =>
-    openLink("https://act.hoyolab.com/ys/app/interactive-map/index.html")
-  );
-
-const checkInBtn = document
-  .getElementById("checkInBtn")
-  .addEventListener("click", () =>
-    openLink(
-      "https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481"
-    )
-  );
-
-const wikiBtn = document
-  .getElementById("wikiBtn")
-  .addEventListener("click", () =>
-    openLink("https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki")
-  );
 
 /*
   fetch("https://genshin.jmp.blue/weapons/deathmatch/icon")
