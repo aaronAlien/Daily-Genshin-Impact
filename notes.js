@@ -41,9 +41,7 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
     dataArray2.forEach((weapon) => {
       let currentDayWeapons = document.getElementById("currentDayWeapons");
       if (weapon.availability.includes(week[dayIndex])) {
-        currentDayWeapons.innerHTML += `<h4>${weapon.items[0].name}</h4>
-        
-        `
+        currentDayWeapons.innerHTML += `<h4>${weapon.items[0].name}</h4>`
         /*
         <p>${weapon.weapons
           .map(
@@ -103,3 +101,50 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   }
 })
 .catch((error) => console.log(error));
+
+// CHARACTERS
+
+fetch("https://genshin.jmp.blue/materials/talent-book")
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    // console.log(Array.isArray(data));
+
+    // Convert the object's values into an array
+    const dataArray = Object.values(data);
+    //console.log(dataArray);
+
+    dataArray.forEach((book) => {
+      if (book.availability.includes(week[dayIndex])) {
+        let currentDayBooks = document.getElementById("currentDayBooks");
+        currentDayBooks.innerHTML += `<h4>${
+          book.items[0].name
+        }</h4> <p>${book.characters
+          .map(
+            (character) =>
+              character.charAt(0).toUpperCase() + character.slice(1)
+          )
+          .join(" | ")}</p>`;
+      }
+
+      let todaysCharacters = book.characters;
+      // console.log(todaysCharacters);
+
+      todaysCharacters.forEach((char) => {
+        // console.log(book)
+        console.log('Fetching character icon for ${char}');
+
+        const url2 = `https://genshin.jmp.blue/characters/${char}/icon`;
+        const charImg = document.createElement('img');
+        charImg.src = url2;
+        charImg.style.width = '50px';
+        charImg.alt = char;
+        currentDayBooks.appendChild(charImg);
+      });
+    });
+
+    if (!Array.isArray(data)) {
+      return false;
+    }
+  })
+  .catch((error) => console.log(error));

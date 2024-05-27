@@ -1,3 +1,4 @@
+
 // weekdays
 
 const week = [
@@ -25,9 +26,52 @@ const currentDateString = currentDate.toLocaleDateString("en-UK", {
 // weekday output
 dayDisplay.textContent = `${week[dayIndex]}`;
 dayDisplay.style.color = "var(--light-font)";
-dayDisplay.style.border = "1px solid white";
-dayDisplay.style.padding = "1rem";
 
+
+
+// CHARACTERS
+
+fetch("https://genshin.jmp.blue/materials/talent-book")
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    // console.log(Array.isArray(data));
+
+    // Convert the object's values into an array
+    const dataArray = Object.values(data);
+    //console.log(dataArray);
+
+    dataArray.forEach((book) => {
+      if (book.availability.includes(week[dayIndex])) {
+        let currentDayBooks = document.getElementById("currentDayBooks");
+        currentDayBooks.innerHTML += 
+        `<h4>${book.items[0].name}</h4>`
+      }
+
+      let todaysCharacters = book.characters;
+      console.log(todaysCharacters);
+
+      todaysCharacters.forEach((char) => {
+        // console.log(book)
+        console.log(`Fetching character icon for ${char}`);
+        const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
+        const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon` ;
+        const charImg = document.createElement('img');
+        charImg.src = charUrl1 || charUrl2;
+        charImg.style.width = '50px';
+        charImg.alt = char;
+        currentDayBooks.appendChild(charImg);
+      });
+    });
+
+    if (!Array.isArray(data)) {
+      return false;
+    }
+  })
+  .catch((error) => console.log(error));
+
+
+/*
 fetch("https://genshin.jmp.blue/materials/talent-book")
   .then((res) => res.json())
   .then((data) => {
@@ -56,7 +100,9 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
       return false;
     }
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error));*/
+
+  // WEAPONS
 
 fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .then((res) => res.json())
@@ -83,6 +129,7 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
         imageElement.src = url;
         imageElement.style.width = '50px';
         imageElement.style.borderRadius = '10px';
+        imageElement.alt = weapon;
         currentDayWeapons.appendChild(imageElement);
       });
     });
@@ -126,7 +173,18 @@ async function fetchData() {
 
     // search output - text
     const searchOutput = document.getElementById("searchOutput");
-    searchOutput.innerHTML = dataArray3.slice(0, 12).join(" - ");
+    searchOutput.innerHTML = 
+    `Name: ${dataArray3[0]} ... "${dataArray3[1]}" ... ${dataArray3[4]}\n
+    Nation: ${dataArray3[5]}\n
+    Vision: ${dataArray3[2]}\n
+    Weapon: ${dataArray3[3]}\n
+    Rarity: ${dataArray3[7]}-Star\n
+    Birthday: ${dataArray3[10]}\n
+    Description: ${dataArray3[11]}`;
+
+    searchOutput.style.maxWidth = '70%';
+    searchOutput.style.border = '2px solid var(--color-f)';
+    searchOutput.style.borderRadius = '4rem';
 
     // search output - image
     const imgContainer = document.createElement("div");
