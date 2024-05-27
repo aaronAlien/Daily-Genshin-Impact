@@ -58,50 +58,50 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
   })
   .catch((error) => console.log(error));
 
-
 fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .then((res) => res.json())
   .then((data) => {
-    //console.log(data);
-
     const dataArray2 = Object.values(data);
-    //console.log(dataArray2);
+    //console.log(dataArray2[1]);
 
-    dataArray2.forEach((weapon) => {
-      let currentDayWeapons = document.getElementById("currentDayWeapons");
-      if (weapon.availability.includes(week[dayIndex])) {
-        currentDayWeapons.innerHTML += `<h4>${weapon.items[0].name}</h4>
-        
-        `
-        /*
-        <p>${weapon.weapons
-          .map(
-            (weapon) =>
-              weapon.charAt(0).toUpperCase() +
-              weapon.replace(/-/g, " ").slice(1)
-          )
-          .join(" | ")}
-        </p>`;*/
+    dataArray2.forEach((mat) => {
+      if (mat.availability.includes(week[dayIndex])) {
+        let currentDayWeapons = document.getElementById("currentDayWeapons");
+        currentDayWeapons.innerHTML += `<h4>${mat.items[0].name}</h4>`;
+        //console.log(mat.items[1]);
       }
+      let todaysWeapons = mat.weapons;
+      //console.log(todaysWeapons);
+
+      todaysWeapons.forEach((weapon) => {
+        //console.log(weapon);
+
+        console.log(`Fetching weapon icon for ${weapon}`);
+
+        const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
+        const imageElement = document.createElement('img');
+        imageElement.src = url;
+        imageElement.style.width = '50px';
+        imageElement.style.borderRadius = '10px';
+        currentDayWeapons.appendChild(imageElement);
+      });
     });
+
     if (!Array.isArray(data)) {
       return false;
     }
   })
   .catch((error) => console.log(error));
 
-
 // character search
 
 async function fetchData() {
-
-
   try {
     const mySearch = document
       .getElementById("mySearch")
       .value.toLocaleLowerCase();
-    
-      mySearch.value = '';
+
+    mySearch.value = "";
 
     const response = await fetch(
       `https://genshin.jmp.blue/characters/${mySearch}`
@@ -177,6 +177,7 @@ const wikiBtn = document
     openLink("https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki")
   );
 
+/*
   fetch("https://genshin.jmp.blue/weapons/deathmatch/icon")
   .then(response => response.blob())
   .then(imageBlob => {
@@ -188,3 +189,4 @@ const wikiBtn = document
     document.body.appendChild(imageElement);
   })
   .catch((error) => console.log(error));
+*/
