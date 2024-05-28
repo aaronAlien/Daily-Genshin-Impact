@@ -38,21 +38,26 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
     const dataArray = Object.values(data);
     //console.log(dataArray);
 
+    let currentDayBooks = document.getElementById("currentDayBooks");
+
     dataArray.forEach((book) => {
       if (book.availability.includes(week[dayIndex])) {
-        let currentDayBooks = document.getElementById("currentDayBooks");
-        currentDayBooks.innerHTML += `<h4>${book.items[0].name}</h4>`;
+        let todaysBooks = book.items[0].name;
+        currentDayBooks.innerHTML += `<p>${todaysBooks}</p>`;
+        //console.log(todaysBooks);
       }
 
       let todaysCharacters = book.characters;
       console.log(todaysCharacters);
 
       todaysCharacters.forEach((char) => {
-        // console.log(book)
+        //console.log(book)
         //console.log(`Fetching character icon for ${char}`);
 
         // eliminate traveler icons - not displaying - fix later
-        if (char.startsWith("traveler-")) return;
+        if (char.startsWith("traveler-")) {
+          return;
+        } 
 
         const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
         const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
