@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100..800&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Croissant+One&family=Syne:wght@400..800&display=swap');
 
 :root {
-  --celestial-blue: #4c93bdff;
+  --celestial-blue: #6AA6C8; /*yes*/
   --ultra-violet: #584b95ff;
-  --russian-violet: #2f2145;
+  --russian-violet: #2f2145; /*yes*/
   --dark-purple: #371a36ff;
   --licorice: #1b1113ff;
-  --color-a: #0a0a0a;
+  --color-a: #0a0a0a;  /*yes*/
   --color-b: #406658;
   --color-c: #4b4b4b;
   --color-d: #223b3f;
   --color-e: #c89295;
   --color-f: #80b7c2;
   --light-font: #ebeaeb;
+  --asparagus: #7BA06A;
   --BODY-font-family: 'Syne', sans-serif;
   --HEAD-font-family: 'Croissant One', Impact, Haettenschweiler,
     'Arial Narrow Bold', sans-serif;
@@ -78,15 +79,15 @@ ul {
   color: var(--light-font);
   font-size: 2.1rem;
   font-family: var(--HEAD-font-family);
-  border-left: 2px solid var(--russian-violet);
+  border-left: 2px solid var(--celestial-blue);
 }
 
 #nav-links a:hover {
-  background-color: var(--russian-violet);
+  background-color: var(--celestial-blue);
 }
 
 .card {
-  background: var(--ultra-violet);
+  background: var(--russian-violet);
   max-width: 90%;
   color: var(--light-font);
   border-radius: 5rem;
@@ -129,10 +130,10 @@ li {
 }
 
 .boldSubHead {
-  background-color: var(--color-a);
+  /*background-color: var(--light-font); */
   font-family: var(--HEAD-font-family);
   margin: 2rem;
-  color: var(--light-font);
+  color: var(--color-a);
   font-weight: bold;
   font-size: 2em;
   border-radius: 1rem;
@@ -140,7 +141,7 @@ li {
 
 .weapons,
 .books {
-  background: rgba(59, 41, 87, 0.425);
+  background: rgba(179, 139, 198, 0.557);
   border: 2px solid var(--russian-violet);
   color: var(--color-a);
   padding: 10px 15px;
@@ -156,7 +157,7 @@ li {
 }
 
 .search {
-  background: var(--color-d);
+  background: var(--celestial-blue);
   border-radius: 35px;
   color: var(--color-g);
   padding: 10px 15px;

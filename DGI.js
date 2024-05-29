@@ -1,34 +1,34 @@
 // weekdays
 
 const week = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
 ];
 
-const dayDisplay = document.getElementById("day-display");
+const dayDisplay = document.getElementById('day-display');
 
 const currentDate = new Date();
 const dayIndex = currentDate.getDay();
-const currentDateString = currentDate.toLocaleDateString("en-UK", {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+const currentDateString = currentDate.toLocaleDateString('en-UK', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 });
 
 // weekday output
 dayDisplay.textContent = `${week[dayIndex]}`;
-dayDisplay.style.color = "var(--light-font)";
+dayDisplay.style.color = 'var(--light-font)';
 
 // CHARACTERS
 
-fetch("https://genshin.jmp.blue/materials/talent-book")
+fetch('https://genshin.jmp.blue/materials/talent-book')
   .then((res) => res.json())
   .then((data) => {
     // console.log(data);
@@ -38,38 +38,40 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
     const dataArray = Object.values(data);
     //console.log(dataArray);
 
-    let currentDayBooks = document.getElementById("currentDayBooks");
+    let currentDayBooks = document.getElementById('currentDayBooks');
 
     dataArray.forEach((book) => {
       if (book.availability.includes(week[dayIndex])) {
+        let bookDiv = document.createElement('div');
         let todaysBooks = book.items[0].name;
-        currentDayBooks.innerHTML += `<p>${todaysBooks}</p>`;
-        //console.log(todaysBooks);
+        let p = document.createElement('p');
+        p.textContent = todaysBooks;
+        bookDiv.appendChild(p);
+    
+        let todaysCharacters = book.characters;
+        console.log(todaysCharacters);
+    
+        todaysCharacters.forEach((char) => {
+          // eliminate traveler icons - not displaying - fix later
+          if (char.startsWith('traveler-')) {
+            return;
+          }
+    
+          const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
+          const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
+          const charImg = document.createElement('img');
+          
+          // search for either icon
+          charImg.src = charUrl1 || charUrl2;
+          charImg.style.width = '50px';
+          charImg.style.margin = '5px';
+          charImg.alt = char;
+    
+          bookDiv.appendChild(charImg);
+        });
+    
+        currentDayBooks.appendChild(bookDiv);
       }
-
-      let todaysCharacters = book.characters;
-      console.log(todaysCharacters);
-
-      todaysCharacters.forEach((char) => {
-        //console.log(book)
-        //console.log(`Fetching character icon for ${char}`);
-
-        // eliminate traveler icons - not displaying - fix later
-        if (char.startsWith("traveler-")) {
-          return;
-        } 
-
-        const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
-        const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
-        const charImg = document.createElement("img");
-        // search for either icon
-
-        charImg.src = charUrl1 || charUrl2;
-        charImg.style.width = "50px";
-        charImg.style.margin = '5px';
-        charImg.alt = char;
-        currentDayBooks.appendChild(charImg);
-      });
     });
 
     if (!Array.isArray(data)) {
@@ -111,46 +113,45 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
 
 // WEAPONS
 
-fetch("https://genshin.jmp.blue/materials/weapon-ascension")
+fetch('https://genshin.jmp.blue/materials/weapon-ascension')
   .then((res) => res.json())
   .then((data) => {
     const dataArray2 = Object.values(data);
     //console.log(dataArray2[1]);
+    
+    let currentDayWeapons = document.getElementById('currentDayWeapons');
 
     dataArray2.forEach((mat) => {
       if (mat.availability.includes(week[dayIndex])) {
-
         /*console.log(`Fetching ascension material icon for ${mat.items[0].name}`);
-
-        const matName = mat.items[0].name.split(' ').join('-').toLowerCase();
         console.log(matName);
+        */
+      let weaponDiv = document.createElement('div');
+      let todaysWeaponMats = mat.items[0].name;
+      let p2 = document.createElement('p');
+      p2.textContent = todaysWeaponMats;
+      weaponDiv.appendChild(p2);
 
-        const urlMat = `https://genshin.jmp.blue/materials/weapon-ascension/${mat.matName}`;
-        const imageElementMat = document.createElement('img');
-        imageElementMat.src = urlMat;
-        imageElementMat.style.width = '50px';
-        currentDayWeapons.appendChild(imageElementMat);
-*/
-        let currentDayWeapons = document.getElementById("currentDayWeapons");
-        currentDayWeapons.innerHTML += `<h4>${mat.items[0].name}</h4>`;
+        let todaysWeapons = mat.weapons;
         //console.log(mat.items[1]);
-      }
-      let todaysWeapons = mat.weapons;
-      //console.log(todaysWeapons);
+        console.log(todaysWeapons);
 
       todaysWeapons.forEach((weapon) => {
         //console.log(weapon);
-
         //console.log(`Fetching weapon icon for ${weapon}`);
 
         const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
-        const imageElement = document.createElement("img");
+        const imageElement = document.createElement('img');
+
         imageElement.src = url;
-        imageElement.style.width = "50px";
+        imageElement.style.width = '50px';
         imageElement.style.margin = '5px';
         imageElement.alt = weapon;
-        currentDayWeapons.appendChild(imageElement);
+
+        weaponDiv.appendChild(imageElement);
       });
+      currentDayWeapons.appendChild(weaponDiv);
+    }
     });
 
     if (!Array.isArray(data)) {
@@ -164,10 +165,10 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
 async function fetchData() {
   try {
     const mySearch = document
-      .getElementById("mySearch")
+      .getElementById('mySearch')
       .value.toLocaleLowerCase();
 
-    mySearch.value = "";
+    mySearch.value = '';
 
     const response = await fetch(
       `https://genshin.jmp.blue/characters/${mySearch}`
@@ -177,7 +178,7 @@ async function fetchData() {
     );
 
     if (!response.ok || !response2.ok) {
-      throw new Error("Could not fetch resource");
+      throw new Error('Could not fetch resource');
     }
 
     const data = await response.json();
@@ -191,7 +192,7 @@ async function fetchData() {
     //searchOutput.innerText = '';
 
     // search output - text
-    const searchOutput = document.getElementById("searchOutput");
+    const searchOutput = document.getElementById('searchOutput');
     searchOutput.innerHTML = `Name: ${dataArray3[0]} ... "${dataArray3[1]}" ... ${dataArray3[4]}\n
     Nation: ${dataArray3[5]}\n
     Vision: ${dataArray3[2]}\n
@@ -200,18 +201,18 @@ async function fetchData() {
     Birthday: ${dataArray3[10]}\n
     Description: ${dataArray3[11]}`;
 
-    searchOutput.style.maxWidth = "70%";
-    searchOutput.style.border = "2px solid var(--color-f)";
-    searchOutput.style.borderRadius = "4rem";
+    searchOutput.style.maxWidth = '70%';
+    searchOutput.style.border = '2px solid var(--color-f)';
+    searchOutput.style.borderRadius = '4rem';
 
     // search output - image
-    const imgContainer = document.createElement("div");
-    imgContainer.style.maxWidth = "100%";
+    const imgContainer = document.createElement('div');
+    imgContainer.style.maxWidth = '100%';
 
-    const img = document.createElement("img");
-    img.style.width = "300px";
-    img.style.height = "450px";
-    img.style.objectFit = "contain";
+    const img = document.createElement('img');
+    img.style.width = '300px';
+    img.style.height = '450px';
+    img.style.objectFit = 'contain';
     img.src = url;
 
     // append image to container - then append container to searchOutput
@@ -225,12 +226,12 @@ async function fetchData() {
 }
 
 const searchBtn = document
-  .getElementById("searchBtn")
-  .addEventListener("click", fetchData);
+  .getElementById('searchBtn')
+  .addEventListener('click', fetchData);
 
 // links function
 const openLink = (url) => {
-  window.open(url, "_blank");
+  window.open(url, '_blank');
 };
 
 /*

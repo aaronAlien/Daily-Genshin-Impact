@@ -148,3 +148,4 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
     }
   })
   .catch((error) => console.log(error));
+
