@@ -195,7 +195,7 @@ input {
   text-decoration: underline;
 }
 
-h4 {
+.grid h3 {
   background-color: var(--color-a);
   color: var(--light-font);
   border-radius: 1rem;

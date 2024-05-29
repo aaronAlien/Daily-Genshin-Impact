@@ -44,9 +44,9 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
       if (book.availability.includes(week[dayIndex])) {
         let bookDiv = document.createElement('div');
         let todaysBooks = book.items[0].name;
-        let p = document.createElement('p');
-        p.textContent = todaysBooks;
-        bookDiv.appendChild(p);
+        let title = document.createElement('h3');
+        title.textContent = todaysBooks;
+        bookDiv.appendChild(title);
     
         let todaysCharacters = book.characters;
         console.log(todaysCharacters);
@@ -63,7 +63,7 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
           
           // search for either icon
           charImg.src = charUrl1 || charUrl2;
-          charImg.style.width = '50px';
+          charImg.style.width = '70px';
           charImg.style.margin = '5px';
           charImg.alt = char;
     
@@ -128,9 +128,9 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         */
       let weaponDiv = document.createElement('div');
       let todaysWeaponMats = mat.items[0].name;
-      let p2 = document.createElement('p');
-      p2.textContent = todaysWeaponMats;
-      weaponDiv.appendChild(p2);
+      let title2 = document.createElement('h3');
+      title2.textContent = todaysWeaponMats;
+      weaponDiv.appendChild(title2);
 
         let todaysWeapons = mat.weapons;
         //console.log(mat.items[1]);
@@ -144,8 +144,9 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         const imageElement = document.createElement('img');
 
         imageElement.src = url;
-        imageElement.style.width = '50px';
-        imageElement.style.margin = '5px';
+        imageElement.style.width = '70px';
+        imageElement.style.height = '70px';
+        imageElement.style.margin = '2px';
         imageElement.alt = weapon;
 
         weaponDiv.appendChild(imageElement);
