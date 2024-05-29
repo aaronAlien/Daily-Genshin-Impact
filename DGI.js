@@ -44,7 +44,7 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
       if (book.availability.includes(week[dayIndex])) {
         let bookDiv = document.createElement('div');
         let todaysBooks = book.items[0].name;
-        let title = document.createElement('h3');
+        let title = document.createElement('h5');
         title.textContent = todaysBooks;
         bookDiv.appendChild(title);
     
@@ -128,7 +128,7 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         */
       let weaponDiv = document.createElement('div');
       let todaysWeaponMats = mat.items[0].name;
-      let title2 = document.createElement('h3');
+      let title2 = document.createElement('h5');
       title2.textContent = todaysWeaponMats;
       weaponDiv.appendChild(title2);
 
@@ -202,8 +202,8 @@ async function fetchData() {
     Birthday: ${dataArray3[10]}\n
     Description: ${dataArray3[11]}`;
 
-    searchOutput.style.maxWidth = '70%';
-    searchOutput.style.border = '2px solid var(--color-f)';
+    searchOutput.style.maxWidth = '50%';
+    searchOutput.style.border = '2px solid var(--licorice)';
     searchOutput.style.borderRadius = '4rem';
 
     // search output - image
