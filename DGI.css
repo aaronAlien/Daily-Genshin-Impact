@@ -50,10 +50,11 @@ body {
   background-color: var(--color-a);
   align-items: baseline;
   width: 100%;
-  padding: 1rem 4rem;
+  padding: 2rem 4rem;
   position: fixed;
   z-index: 10;
-  /*border-bottom: 1px solid var(--color-f);*/
+  border-bottom: 4px solid var(--celestial-blue);
+  border-radius: 4rem;
 }
 
 #nav-title {
@@ -103,6 +104,7 @@ ul {
 #dateTitle {
   font-family: var(--HEAD-font-family);
   color: var(--color-a);
+  font-size: 2.1rem;
 }
 
 .grid {
