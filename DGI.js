@@ -24,7 +24,7 @@ const currentDateString = currentDate.toLocaleDateString('en-UK', {
 
 // weekday output
 dayDisplay.textContent = `${week[dayIndex]}`;
-dayDisplay.style.color = 'var(--light-font)';
+dayDisplay.style.fontSize = '2.6rem';
 
 // CHARACTERS
 

@@ -6,12 +6,11 @@
   --russian-violet: #2f2145; /*yes*/
   --dark-purple: #371a36ff;
   --licorice: #1b1113ff;
-  --color-a: #0a0a0a;  /*yes*/
+  --dark-font: #0a0a0a;  /*yes*/
   --color-b: #406658;
   --color-c: #4b4b4b;
   --color-d: #223b3f;
   --color-e: #c89295;
-  --color-f: #80b7c2;
   --light-font: #ebeaeb;
   --asparagus: #7BA06A;
   --BODY-font-family: 'Syne', sans-serif;
@@ -38,7 +37,7 @@ html {
 /* 65.5% = default, 1rem = 10px */
 
 body {
-  background: var(--color-a);
+  background: var(--dark-font);
   font-size: var(--BODY-font-size);
   display: flex;
   flex-direction: column;
@@ -47,14 +46,15 @@ body {
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-a);
+  background-color: var(--dark-font);
   align-items: baseline;
   width: 100%;
   padding: 2rem 4rem;
   position: fixed;
   z-index: 10;
   border-bottom: 4px solid var(--celestial-blue);
-  border-radius: 4rem;
+  box-shadow: 10px 0px 12px var(--celestial-blue);
+  border-bottom-left-radius: 4rem;
 }
 
 #nav-title {
@@ -93,7 +93,7 @@ ul {
   color: var(--light-font);
   border-radius: 5rem;
   margin: 12em auto;
-  padding: 25px 45px;
+  padding: 2.5rem 8rem;
   text-align: center;
   position: relative;
   display: flex;
@@ -103,8 +103,10 @@ ul {
 
 #dateTitle {
   font-family: var(--HEAD-font-family);
-  color: var(--color-a);
-  font-size: 2.1rem;
+  color: var(--light-font);
+  background: rgba(179, 139, 198, 0.557);
+  border-radius: 5rem;
+  margin: 3rem;
 }
 
 .grid {
@@ -132,12 +134,12 @@ li {
 }
 
 .boldSubHead {
-  /*background-color: var(--light-font); */
+/*  background: var(--asparagus);*/
   font-family: var(--HEAD-font-family);
   margin: 2rem;
-  color: var(--color-a);
+  color: var(--dark-font);
   font-weight: bold;
-  font-size: 2em;
+  font-size: 2.6rem;
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -146,7 +148,7 @@ li {
 .books {
   background: rgba(179, 139, 198, 0.557);
   border: 2px solid var(--russian-violet);
-  color: var(--color-a);
+  color: var(--dark-font);
   padding: 10px 15px;
   font-size: 2rem;
   border-radius: 5rem;
@@ -162,7 +164,7 @@ li {
 .search {
   background: var(--celestial-blue);
   border-radius: 35px;
-  color: var(--color-a);
+  color: var(--dark-font);
   padding: 10px 15px;
   display: flex;
   flex-direction: column;
@@ -197,26 +199,17 @@ input {
   text-decoration: underline;
 }
 
-.grid h3 {
-  background-color: var(--color-a);
+h5 {
+  border-bottom: 2px solid var(--russian-violet);
+  font-family: var(--HEAD-font-family);
+  color: var(--light-font);
+  font-size: 2rem;
+  margin: 4rem auto;
+}
+
+/*.grid h3 {
+  background-color: var(--dark-font);
   color: var(--light-font);
   border-radius: 1rem;
   margin: 1rem auto;
-}
-
-/*
-  .nav {
-    display: grid;
-    grid-template-columns: 50% 1fr 1fr;
-    grid-template-rows: auto;
-    margin: 0 auto;
-    align-items: center;
-    gap: 3rem;
-    border-bottom: 4px solid #B8A9C7;
-    border-radius: 3.6rem;
-    background: #1F0318;
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-  }
-*/
+}*/
