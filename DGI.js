@@ -43,6 +43,7 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
     dataArray.forEach((book) => {
       if (book.availability.includes(week[dayIndex])) {
         let bookDiv = document.createElement('div');
+        /*bookDiv.setAttribute('class', 'materialsNewDiv');*/
         let todaysBooks = book.items[0].name;
         let title = document.createElement('h5');
         title.textContent = todaysBooks;
@@ -63,7 +64,7 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
           
           // search for either icon
           charImg.src = charUrl1 || charUrl2;
-          charImg.style.width = '70px';
+          charImg.style.height = '70px';
           charImg.style.margin = '5px';
           charImg.alt = char;
     
@@ -144,7 +145,6 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         const imageElement = document.createElement('img');
 
         imageElement.src = url;
-        imageElement.style.width = '70px';
         imageElement.style.height = '70px';
         imageElement.style.margin = '2px';
         imageElement.alt = weapon;
