@@ -194,17 +194,21 @@ async function fetchData() {
 
     // search output - text
     const searchOutput = document.getElementById('searchOutput');
-    searchOutput.innerHTML = `Name: ${dataArray3[0]} ... "${dataArray3[1]}" ... ${dataArray3[4]}\n
-    Nation: ${dataArray3[5]}\n
-    Vision: ${dataArray3[2]}\n
-    Weapon: ${dataArray3[3]}\n
-    Rarity: ${dataArray3[7]}-Star\n
-    Birthday: ${dataArray3[10]}\n
+    searchOutput.innerHTML = `
+    ${dataArray3[0]}<br/>
+    "${dataArray3[1]}"<br/>
+    ${dataArray3[4]}<br/>
+    Nation: ${dataArray3[5]}<br/>
+    Vision: ${dataArray3[2]}<br/>
+    Weapon: ${dataArray3[3]}<br/>
+    Rarity: ${dataArray3[7]}-Star<br/>
+    Birthday: ${dataArray3[10]}<br/>
     Description: ${dataArray3[11]}`;
 
-    searchOutput.style.maxWidth = '50%';
+    searchOutput.style.maxWidth = '100%';
     searchOutput.style.border = '2px solid var(--licorice)';
     searchOutput.style.borderRadius = '4rem';
+    searchOutput.style.padding = '3rem';
 
     // search output - image
     const imgContainer = document.createElement('div');

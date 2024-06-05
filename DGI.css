@@ -39,26 +39,24 @@ html {
 body {
   background: var(--dark-font);
   font-size: var(--BODY-font-size);
-  display: flex;
-  flex-direction: column;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: var(--dark-font);
+  background-color: var(--celestial-blue);
   align-items: baseline;
   width: 100%;
   padding: 2rem 4rem;
   position: fixed;
+  top: 0;
   z-index: 10;
-  /*border-bottom: 4px solid var(--celestial-blue);*/
-  box-shadow: 0px 5px 10px var(--celestial-blue);
-  /*border-bottom-left-radius: 4rem;*/
+  box-shadow: 0px 5px 5px var(--celestial-blue);
+  flex-direction: column;
 }
 
 #nav-title {
-  color: var(--light-font);
+  color: var(--dark-font);
   font-family: var(--HEAD-font-family);
   font-size: 4em;
   text-decoration: none;
@@ -68,6 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
 }
 
 ul {
@@ -77,10 +76,9 @@ ul {
 #nav-links a {
   padding: 2rem;
   text-decoration: none;
-  color: var(--light-font);
+  color: var(--dark-font);
   font-size: 2.1rem;
   font-family: var(--HEAD-font-family);
-  border-left: 2px solid var(--celestial-blue);
 }
 
 #nav-links a:hover {
@@ -207,9 +205,10 @@ h5 {
   margin: 4rem auto;
 }
 
-/*.grid h3 {
-  background-color: var(--dark-font);
-  color: var(--light-font);
-  border-radius: 1rem;
-  margin: 1rem auto;
-}*/
+@media (max-width: 480px) {
+  .grid, .card, .weapons, .books {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

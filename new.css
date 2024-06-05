@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100..800&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Croissant+One&family=Syne:wght@400..800&display=swap');
+
+:root {
+  --celestial-blue: #6AA6C8; /*yes*/
+  --ultra-violet: #584b95ff;
+  --russian-violet: #2f2145; /*yes*/
+  --dark-purple: #371a36ff;
+  --licorice: #1b1113ff;
+  --dark-font: #0a0a0a;  /*yes*/
+  --color-b: #406658;
+  --color-c: #4b4b4b;
+  --color-d: #223b3f;
+  --color-e: #c89295;
+  --light-font: #ebeaeb;
+  --asparagus: #7BA06A;
+  --BODY-font-family: 'Syne', sans-serif;
+  --HEAD-font-family: 'Croissant One', Impact, Haettenschweiler,
+    'Arial Narrow Bold', sans-serif;
+  --BODY-font-size: 1.6rem;
+  --BODY-font-style: normal;
+  --BODY-font-weight: 400;
+}
+
+:root {
+  --color-a: #0a0a0a; /*background*/
+  --color-b: #1c1619; /*card*/
+  --color-c: #bed4af; /*primary 1 green*/
+  --color-d: #223b3f; /*primary 2 dark teal*/
+  --color-e: #9e78b5; /*accent purple*/
+  --color-f: #80b7c2; /*accent blue*/
+  --color-g: #ebeaeb; /* light font*/
+  --color-h: #000; /* dark font*/
+  --BODY-font-family: "Lexend Zetta", sans-serif;
+  --BODY-font-size: 16px;
+  --BODY-font-style: normal;
+  --BODY-font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Zetta", sans-serif;
+  box-sizing: border-box;
+  line-height: 1.75;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+/* 65.5% = default, 1rem = 10px */
+
+body {
+  background: var(--color-a);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-purple);
+  width: 100%;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 10;
+}
+#nav-title {
+  color: var(--light-font);
+  font-size: 3.5rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+}
+.nav-links a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+  color: var(--light-font);
+}
+.nav-links a:hover {
+  /*background-color: var(--color-e);*/
+  border-radius: 11px;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*.date {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 50%;
+  border-radius: 35px;
+  font-size: 1.6rem;
+  padding: 20px;
+  position: relative;
+  top: 12rem;
+  z-index: -1;
+}*/
+
+.card {
+  background: var(--asparagus);
+  max-width: 90%;
+  color: var(--color-h);
+  border-radius: 55px;
+  margin: 50px auto;
+  padding: 25px 45px;
+  text-align: center;
+  position: relative;
+  top: 8rem;
+}
+
+.boldSubHead {
+  font-weight: bold;
+  font-size: 2rem;
+  border: 2px solid var(--russian-violet);
+  border-radius: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-gap: 30px;
+  font-size: 1.6rem;
+  margin: 20px auto;
+  flex: auto;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.weapons,
+.books {
+  background: var();
+  border-radius: 35px;
+  color: var(--color-h);
+  padding: 10px 15px;
+}
+
+#currentDayWeapons,
+#currentDayBooks {
+  display: block;
+  margin: 0px 30px;
+  padding: 10px 15px;
+ white-space: initial;
+ overflow-x: auto;
+}
+
+
+.links {
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.links a:hover {
+  cursor: grab;
+}
+

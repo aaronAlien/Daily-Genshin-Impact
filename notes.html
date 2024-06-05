@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./new.css" />
+    <script defer src=""></script>
+    <title>my app</title>
+  </head>
+  <body>
+    <nav id="navbar" class="nav">
+      <h1 id="nav-title">Genshin Daily</h1>
+
+      <div class="links">
+        <ul id="">
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+          <li><a href="#mySearch">Search</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="card">
+      <div id="dateTitle">
+        <h2 id="day-display"><!--this is a javascript element--></h2>
+      </div>
+
+      <div class="grid">
+        <div class="section1">
+          <h3 class="boldSubHead">section1</h3>
+
+          <ul id="weaps">
+            <!--this is a javascript element-->
+          </ul>
+        </div>
+        <div class="section2">
+          <h3 class="boldSubHead">section2</h3>
+
+          <ul id="books">
+            <!--this is a javascript element-->
+          </ul>
+        </div>
+        <div class="search">
+          <h3 class="boldSubHead">Find:</h3>
+
+          <label for="mySearch"></label>
+          <input type="text" id="mySearch" placeholder=" Wanderer" />
+          <button class="btn" id="searchBtn">search</button>
+          <div id="searchOutput"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </body>
+</html>
