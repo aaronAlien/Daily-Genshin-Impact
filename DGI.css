@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@100..800&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Croissant+One&family=Syne:wght@400..800&display=swap');
 
 :root {
-  --celestial-blue: #6AA6C8; /*yes*/
-  --ultra-violet: #584b95ff;
-  --russian-violet: #2f2145; /*yes*/
-  --dark-purple: #371a36ff;
-  --licorice: #1b1113ff;
-  --dark-font: #0a0a0a;  /*yes*/
-  --color-b: #406658;
-  --color-c: #4b4b4b;
-  --color-d: #223b3f;
-  --color-e: #c89295;
-  --light-font: #ebeaeb;
-  --asparagus: #7BA06A;
+  --color-a: #0a0a0a; 
+  --color-b: #1c1619; 
+  --color-c: #d4fcbada; 
+  --color-d: #ffffffc2;
+  --color-e: #2f2145;
+  --color-f: #80b7c2; 
+  --color-g: #ebeaeb; 
+  --color-h: #000;
+  --grid: #2f2145dc;
   --BODY-font-family: 'Syne', sans-serif;
   --HEAD-font-family: 'Croissant One', Impact, Haettenschweiler,
     'Arial Narrow Bold', sans-serif;
@@ -24,191 +21,176 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html {
   font-family: var(--BODY-font-family);
-  scroll-behavior: smooth;
-  font-size: 62.5%;
+  box-sizing: border-box;
   line-height: 1.75;
 }
 
-/* 65.5% = default, 1rem = 10px */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
 
 body {
-  background: var(--dark-font);
-  font-size: var(--BODY-font-size);
+  background: var(--color-a);
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: var(--celestial-blue);
-  align-items: baseline;
+  align-items: center;
+  background-color: var(--color-d);
   width: 100%;
-  padding: 2rem 4rem;
-  position: fixed;
+  padding: 2rem;
   top: 0;
+  left: 0;
+  position: fixed;
   z-index: 10;
-  box-shadow: 0px 5px 5px var(--celestial-blue);
-  flex-direction: column;
 }
 
-#nav-title {
-  color: var(--dark-font);
+ h1{
+  color: var(--color-h);
   font-family: var(--HEAD-font-family);
-  font-size: 4em;
+  font-size: 3.8rem;
   text-decoration: none;
 }
 
-#nav-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-}
-
+.links,
 ul {
+  display: flex;
+  font-size: 1.8rem;
   list-style: none;
 }
 
 #nav-links a {
-  padding: 2rem;
-  text-decoration: none;
-  color: var(--dark-font);
-  font-size: 2.1rem;
-  font-family: var(--HEAD-font-family);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: var(--color-h);
 }
 
 #nav-links a:hover {
-  background-color: var(--celestial-blue);
+  background-color: var(--color-c);
 }
 
 .card {
-  background: var(--russian-violet);
+  background: var(--color-d);
   max-width: 90%;
-  color: var(--light-font);
+  color: var(--color-h);
   border-radius: 5rem;
-  margin: 12em auto;
-  padding: 2.5rem 8rem;
+  margin: 7rem auto 10rem auto;
+  padding: 2.5rem 4.5rem;
   text-align: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
+  top: 8rem;
 }
 
-#dateTitle {
-  font-family: var(--HEAD-font-family);
-  color: var(--light-font);
-  background: rgba(179, 139, 198, 0.557);
-  border-radius: 5rem;
-  margin: 3rem;
+.boldSubHead {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: var(--color-h);
+  background-color: var(--color-f);
+  border: 2px solid var(--color-h);
+  border-radius: 2.5rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   grid-gap: 3rem;
   font-size: 1.6rem;
-  margin: 1rem auto;
-  max-width: 100%;
-  z-index: 5;
-}
-
-.grid > *:nth-child(3) {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  justify-self: center;
-  text-align: center;
-  width: 100%;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-.boldSubHead {
-/*  background: var(--asparagus);*/
-  font-family: var(--HEAD-font-family);
-  margin: 2rem 0 0 0;
-  color: var(--dark-font);
-  font-weight: bold;
-  font-size: 2.6rem;
-  border-radius: 1rem;
-  padding: 1rem;
+  margin: 2rem auto;
+  flex: auto;
 }
 
 .weapons,
 .books {
-  background: rgba(179, 139, 198, 0.557);
-  border: 2px solid var(--russian-violet);
-  color: var(--dark-font);
+  background: var(--grid);
+  border-radius: 35px;
+  color: var(--color-h);
   padding: 10px 15px;
-  font-size: 2rem;
-  border-radius: 5rem;
 }
 
 #currentDayWeapons,
 #currentDayBooks {
   display: block;
-  margin: 0 3rem;
-  padding: 10px 15px;
+  margin: 1rem 0rem;
+  white-space: initial;
+  overflow-x: auto;
 }
 
-.search {
-  background: var(--celestial-blue);
-  border-radius: 35px;
-  color: var(--dark-font);
-  padding: 10px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+#paimon {
+  width: 150px;
+  height: 150px;
 }
 
-#searchOutput {
-  display: flex;
-  flex-flow: row-reverse;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 3rem;
-}
-
-input {
+input, button {
+  padding: 1rem;
   font-size: var(--BODY-font-size);
   font-family: var(--BODY-font-family);
-  padding: 0.5rem;
-  margin: 1rem;
+  margin: 2rem;
 }
 
-.btn {
-  background: var(--color-f);
-  border-radius: 25px;
-  font-family: var(--BODY-font-family);
-  padding: 1.6rem;
-  font-size: 1.6rem;
+button:active {
+  background-color: var(--color-c);
 }
 
-.btn:hover {
-  text-decoration: underline;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-d);
+  width: 100%;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
 }
 
-h5 {
-  border-bottom: 2px solid var(--russian-violet);
-  font-family: var(--HEAD-font-family);
-  color: var(--light-font);
-  font-size: 2rem;
-  margin: 4rem auto;
+.social-links a {
+  padding: 3rem;
 }
 
-@media (max-width: 480px) {
-  .grid, .card, .weapons, .books {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.social-links i {
+  color: var(--color-h);
+}
+
+@media only screen and (max-width: 425px) {
+  .nav {
+    padding: 1rem;
+    font-size: 1.4rem;
+    position: absolute;
+  }
+  .links,
+  ul {
+    flex-wrap: wrap;
+  }
+  #nav-links a {
+    padding: 0.5rem 1rem;
+  }  
+  .grid {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+    font-size: 1.4rem;
+    margin: 1.5rem auto;
+  }
+  .card {
+    padding: 2rem 1rem;
+    margin-top: calc(133px - 1rem);
   }
 }
+
+/*.counters {
+  background: var(--color-d);
+  border-radius: 35px;
+  color: var(--color-g);
+  padding: 10px 15px;
+}*/
+
+/*#check-in,
+#map,
+#wiki {
+  background: var(--color-e);
+  border-radius: 25px;
+  padding: 10px 15px;
+  font-size: 1.6rem;
+}*/

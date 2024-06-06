@@ -59,7 +59,7 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
     let currentDayBooks = document.getElementById('currentDayBooks');
 
     dataArray.forEach((book) => {
-      if (book.availability.includes(week[dayIndex])) {
+      if (book.availability?.includes(week[dayIndex])) {
         let bookDiv = document.createElement('div');
         let todaysBooks = book.items[0].name;
         let title = document.createElement('h5');
@@ -112,7 +112,7 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
     let currentDayWeapons = document.getElementById('currentDayWeapons');
 
     dataArray2.forEach((mat) => {
-      if (mat.availability.includes(week[dayIndex])) {
+      if (mat.availability?.includes(week[dayIndex])) {
         /*console.log(`Fetching ascension material icon for ${mat.items[0].name}`);
         console.log(matName);
         */
@@ -128,7 +128,7 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         //console.log(todaysWeapons);
 
         todaysWeapons.forEach((weapon) => {
-          //console.log(weapon);
+          console.log(weapon);
           //console.log(`Fetching weapon icon for ${weapon}`);
 
           const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
@@ -191,14 +191,14 @@ async function fetchData() {
     Nation: ${dataArray3[5]}<br/>
     Vision: ${dataArray3[2]}<br/>
     Weapon: ${dataArray3[3]}<br/>
-    Rarity: ${dataArray3[7]}-Star<br/>
-    Birthday: ${dataArray3[10]}<br/>
+    Rarity: ${dataArray3[7]}⭐<br/>
     Description: ${dataArray3[11]}`;
 
     searchOutput.style.maxWidth = '100%';
-    searchOutput.style.border = '2px solid var(--licorice)';
     searchOutput.style.borderRadius = '4rem';
     searchOutput.style.padding = '3rem';
+    searchOutput.style.backgroundColor = 'var(--grid)';
+    searchOutput.style.color = 'var(--color-g)';
 
     // search output - image
 
