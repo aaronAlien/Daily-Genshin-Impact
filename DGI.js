@@ -1,5 +1,4 @@
 // weekdays
-
 const week = [
   'Sunday',
   'Monday',
@@ -12,7 +11,6 @@ const week = [
 ];
 
 const dayDisplay = document.getElementById('day-display');
-
 const currentDate = new Date();
 const dayIndex = currentDate.getDay();
 const currentDateString = currentDate.toLocaleDateString('en-UK', {
@@ -23,7 +21,6 @@ const currentDateString = currentDate.toLocaleDateString('en-UK', {
 });
 
 // weekday output
-
 dayDisplay.textContent = `${week[dayIndex]}`;
 dayDisplay.style.fontSize = '2.6rem';
 dayDisplay.style.color = 'var(--color-h)';
@@ -31,8 +28,7 @@ dayDisplay.style.backgroundColor = 'var(--color-f)';
 dayDisplay.style.borderRadius = '2.5rem';
 dayDisplay.style.border = '2px solid var(--color-h)';
 
-// h5 headings styling
-
+// h5 headings
 function h5Style() {
   const h5Titles = document.querySelectorAll('h5');
 
@@ -45,7 +41,6 @@ function h5Style() {
 }
 
 // CHARACTERS
-
 fetch('https://genshin.jmp.blue/materials/talent-book')
   .then((res) => res.json())
   .then((data) => {
@@ -102,7 +97,6 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
   .catch((error) => console.log(error));
 
 // WEAPONS
-
 fetch('https://genshin.jmp.blue/materials/weapon-ascension')
   .then((res) => res.json())
   .then((data) => {
@@ -113,9 +107,8 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
 
     dataArray2.forEach((mat) => {
       if (mat.availability?.includes(week[dayIndex])) {
-        /*console.log(`Fetching ascension material icon for ${mat.items[0].name}`);
-        console.log(matName);
-        */
+        //console.log(`Fetching ascension material icon for ${mat.items[0].name}`);
+
         let weaponDiv = document.createElement('div');
         let todaysWeaponMats = mat.items[0].name;
         let title2 = document.createElement('h5');
@@ -124,7 +117,6 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         weaponDiv.appendChild(title2);
 
         let todaysWeapons = mat.weapons;
-        //console.log(mat.items[1]);
         //console.log(todaysWeapons);
 
         todaysWeapons.forEach((weapon) => {
@@ -154,7 +146,6 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
   .catch((error) => console.log(error));
 
 // character search
-
 async function fetchData() {
   try {
     const mySearch = document
@@ -182,7 +173,6 @@ async function fetchData() {
     const url = URL.createObjectURL(imgData);
 
     // search output - text
-
     const searchOutput = document.getElementById('searchOutput');
     searchOutput.innerHTML = `
     ${dataArray3[0]}<br/>
@@ -201,8 +191,8 @@ async function fetchData() {
     searchOutput.style.color = 'var(--color-g)';
 
     // search output - image
-
     const imgContainer = document.createElement('div');
+    imgContainer.className = 'char-img-container';
     imgContainer.style.maxWidth = '100%';
 
     const img = document.createElement('img');
@@ -211,7 +201,7 @@ async function fetchData() {
     img.style.objectFit = 'contain';
     img.src = url;
 
-    // append image to container - then append container to searchOutput
+    // image to container - container to searchOutput
     imgContainer.appendChild(img);
     searchOutput.append(imgContainer);
 
@@ -225,7 +215,3 @@ const searchBtn = document
   .getElementById('searchBtn')
   .addEventListener('click', fetchData);
 
-// links function
-const openLink = (url) => {
-  window.open(url, '_blank');
-};
