@@ -82,13 +82,13 @@ fetch('https://genshin.jmp.blue/materials/talent-book')
           charImg.alt = char;
 
           bookDiv.appendChild(charImg);
-
-          h5Style();
         });
 
         currentDayBooks.appendChild(bookDiv);
       }
     });
+
+    h5Style();
 
     if (!Array.isArray(data)) {
       return false;
@@ -113,7 +113,6 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
         let todaysWeaponMats = mat.items[0].name;
         let title2 = document.createElement('h5');
         title2.textContent = todaysWeaponMats;
-
         weaponDiv.appendChild(title2);
 
         let todaysWeapons = mat.weapons;
@@ -132,12 +131,11 @@ fetch('https://genshin.jmp.blue/materials/weapon-ascension')
           imageElement.alt = weapon;
 
           weaponDiv.appendChild(imageElement);
-
-          h5Style();
         });
         currentDayWeapons.appendChild(weaponDiv);
       }
     });
+    h5Style();
 
     if (!Array.isArray(data)) {
       return false;
@@ -214,4 +212,3 @@ async function fetchData() {
 const searchBtn = document
   .getElementById('searchBtn')
   .addEventListener('click', fetchData);
-
