@@ -26,7 +26,7 @@ dayDisplay.style.fontSize = '2.6rem';
 dayDisplay.style.color = 'var(--color-h)';
 dayDisplay.style.backgroundColor = 'var(--color-f)';
 dayDisplay.style.borderRadius = '2.5rem';
-dayDisplay.style.border = '2px solid var(--color-h)';
+dayDisplay.style.boxShadow = '0 0 10px #6c6c6c';
 
 // h5 headings
 function h5Style() {
@@ -44,12 +44,12 @@ function h5Style() {
 fetch('https://genshin.jmp.blue/materials/talent-book')
   .then((res) => res.json())
   .then((data) => {
-    // console.log(data);
-    // console.log(Array.isArray(data));
+     console.log(data); // returns object
+     console.log(Array.isArray(data)); // ?bool
 
     // Convert the object's values into an array
     const dataArray = Object.values(data);
-    //console.log(dataArray);
+    console.log(dataArray); // new variable converted
 
     let currentDayBooks = document.getElementById('currentDayBooks');
 
@@ -207,6 +207,7 @@ async function fetchData() {
   } catch (error) {
     console.log(error);
   }
+  mySearch.value = '';
 }
 
 const searchBtn = document
