@@ -23,10 +23,14 @@ const currentDateString = currentDate.toLocaleDateString('en-UK', {
 // weekday output
 dayDisplay.textContent = `${week[dayIndex]}`;
 dayDisplay.style.fontSize = '2.6rem';
-dayDisplay.style.color = 'var(--color-h)';
-dayDisplay.style.backgroundColor = 'var(--color-f)';
+dayDisplay.style.color = 'var(--color-g)';
+dayDisplay.style.backgroundColor = 'rgba(0, 0, 0, 0.443)';
 dayDisplay.style.borderRadius = '2.5rem';
-dayDisplay.style.boxShadow = '0 0 10px #6c6c6c';
+dayDisplay.style.maxWidth = '50%';
+dayDisplay.style.margin = '2rem auto 0 auto';
+dayDisplay.style.textAlign  = 'center';
+dayDisplay.style.position = 'relative';
+/*dayDisplay.style.boxShadow = '0 0 10px #6c6c6c';*/
 
 // h5 headings
 function h5Style() {
