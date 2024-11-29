@@ -33,12 +33,12 @@ function h5Style() {
 fetch("https://genshin.jmp.blue/materials/talent-book")
   .then((res) => res.json())
   .then((data) => {
-    console.log(data); // object
-    console.log(Array.isArray(data)); // ?bool
+    //console.log(data);
+    //console.log(Array.isArray(data));
 
     // to array
     const dataArray = Object.values(data);
-    console.log(dataArray);
+    //console.log(dataArray);
 
     let currentDayBooks = document.getElementById("currentDayBooks");
 
@@ -99,7 +99,7 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
         let todaysWeapons = mat.weapons;
 
         todaysWeapons.forEach((weapon) => {
-          console.log(weapon);
+          //console.log(weapon);
 
           const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
           const imageElement = document.createElement("img");
@@ -144,6 +144,7 @@ async function fetchData() {
 
     const data = await response.json();
     const dataArray3 = Object.values(data);
+    console.log(dataArray3);
 
     const imgData = await response2.blob();
     const url = URL.createObjectURL(imgData);
@@ -153,7 +154,6 @@ async function fetchData() {
     searchOutput.innerHTML = `
     ${dataArray3[0]}<br/>
     "${dataArray3[1]}"<br/>
-    ${dataArray3[4]}<br/>
     Nation: ${dataArray3[5]}<br/>
     Vision: ${dataArray3[2]}<br/>
     Weapon: ${dataArray3[3]}<br/>
@@ -161,9 +161,9 @@ async function fetchData() {
     Description: ${dataArray3[11]}`;
 
     searchOutput.style.maxWidth = "100%";
-    searchOutput.style.borderRadius = ".8rem";
-    searchOutput.style.padding = "3rem";
-    searchOutput.style.backgroundColor = "rgba(224, 224, 224, 0.906)";
+    searchOutput.style.borderRadius = "1rem";
+    searchOutput.style.paddingTop = "1rem";
+    searchOutput.style.backgroundColor = "rgba(224, 224, 224, 0.2)";
     searchOutput.style.color = "var(--color-a)";
 
     // search output - image
@@ -172,9 +172,9 @@ async function fetchData() {
     imgContainer.style.maxWidth = "100%";
 
     const img = document.createElement("img");
-    img.style.width = "300px";
-    img.style.height = "450px";
-    img.style.objectFit = "contain";
+    img.style.width = "350px";
+    img.style.height = "auto";
+    img.style.objectFit = "cover";
     img.src = url;
 
     imgContainer.appendChild(img);

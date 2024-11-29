@@ -14,62 +14,46 @@
     <title>all characters</title>
   </head>
   <nav id="navbar" class="nav">
-    <a href="/index.html">
-      <h1 id="nav-title">Genshin Daily</h1>
-    </a>
-
-    <div class="links">
-      <ul id="nav-links">
-        <li>
-          <a
-            target="_blank"
-            href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481"
-            >Check In</a
-          >
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://act.hoyolab.com/ys/app/interactive-map/index.html"
-            >Interactive Map</a
-          >
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki"
-            >Wiki</a
-          >
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <body>
     <div class="dateTitle">
-      <h2 id="day-display"></h2>
-    </div>
-    <div class="card">
-      <div class="grid">
-        <!--<div class="search">
-          <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
-          <h3 class="boldSubHead">Find a Character</h3>
-
+        <h1 id="nav-title"><a href="/index.html">Genshin Daily</a></h1>
+            <h2 id="day-display"></h2>
+          </div>        
+          <div class="search">
           <label for="mySearch"></label>
           <input type="text" id="mySearch" placeholder=" Wanderer" />
           <button class="btn" id="searchBtn">search</button>
           <div id="searchOutput"></div>
-        </div>-->
-
-        <div class="allCharacters">
-          <h3 class="boldSubHead">Characters: </h3>
-
-          <div id="charactersDisplay">
-            <!--books here-->
-          </div>
         </div>
-      </div>
+
+          <div class="links">
+            <ul id="nav-links">
+              <li><a target="_blank" href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481">Check In</a></li>
+              <li><a target="_blank" href="https://act.hoyolab.com/ys/app/interactive-map/index.html">Interactive Map</a></li>
+              <li><a target="_blank" href="https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki">Wiki</a></li>
+            </ul>
+          </div>
+          
+        </nav>
+      <body>
+    <div class="dateTitle">
+      <h2 id="day-display"></h2>
     </div>
-  </body>
+        <div class="allCharacters">
+          <ul class="boldSubHead" id="vision-list">
+            <li>Anemo</li> 
+            <li>Electro</li>
+            <li>Cryo</li>
+            <li>Geo</li>
+            <li>Dendro</li>
+            <li>Hydro</li>
+          </ul>
+
+          <ul id="character-list">
+            
+          </ul>
+        </div>
+
+      </body>
   <footer id="footer-container">
     <div class="footer-content">
       <p id="my-tag">
