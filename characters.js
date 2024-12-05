@@ -7,10 +7,10 @@ const openModal = () => {
   modalContainer.style.display = "flex";
 
   // scroll
-modal.scrollIntoView({
-  behavior: 'smooth', // Smooth scrolling
-  block: 'center',    // Scroll to the center of the modal
-});
+  modal.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
 };
 
 const closeModal = () => {
@@ -39,9 +39,8 @@ window.onclick = (e) => {
 // character search
 async function fetchData(char) {
   try {
-    const mySearch = document
-      .getElementById("mySearch")
-      .value.toLowerCase() || char;
+    const mySearch =
+      document.getElementById("mySearch").value.toLowerCase() || char;
 
     mySearch.value = "";
 
@@ -66,21 +65,27 @@ async function fetchData(char) {
     // search output - text
     const searchOutput = document.getElementById("searchOutput");
     searchOutput.innerHTML = `
-
     <div class="modal-name">
       <h3>${dataArray3[0]}</h3>
       <p>"${dataArray3[1]}"</p>
     </div>
 
-    <ul>
+     ${
+       dataArray3[0].startsWith("Traveler")
+         ? ` <ul>
+         <li>${dataArray3[9]}</li>
+  <li>${dataArray3[4]}</li>
+  <li>Vision: ${dataArray3[1]}</li>
+  <li>Weapon: ${dataArray3[2]}</li>
+  </ul>`
+         : `<ul>
   <li>Nation: ${dataArray3[5]}</li>
   <li>Vision: ${dataArray3[2]}</li>
   <li>Weapon: ${dataArray3[3]}</li>
   <li>Rarity: ${dataArray3[7]}⭐</li>
   <li>Description: ${dataArray3[11]}</li>
-</ul>
-    
-    `;
+</ul>`
+     }`;
 
     // search output - image
     const imgContainer = document.createElement("div");
@@ -98,11 +103,10 @@ async function fetchData(char) {
   } catch (error) {
     console.log(error);
   }
-  
 }
 
-mySearch.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+mySearch.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
     e.preventDefault();
     fetchData();
     openModal();
@@ -154,7 +158,7 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
 
               const listItem = document.createElement("li");
               listItem.className = "character-item";
-              listItem.setAttribute("data-char", char); 
+              listItem.setAttribute("data-char", char);
 
               const characterIcon = document.createElement("img");
               characterIcon.src = imageUrl;
@@ -169,7 +173,7 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
               characterList.appendChild(listItem);
 
               listItem.addEventListener("click", () => {
-                fetchData(char); // Pass the character name to fetch data
+                fetchData(char);
                 openModal();
               });
             });
@@ -180,4 +184,3 @@ fetch("https://genshin.jmp.blue/materials/talent-book")
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
-

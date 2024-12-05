@@ -1,11 +1,10 @@
 /* NAV */
-const hamburger = document.getElementById("hamburger-btn")
+const hamburger = document.getElementById("hamburger-btn");
 
 hamburger.addEventListener("click", function () {
   const navMenu = document.querySelector(".links ul");
   navMenu.classList.toggle("active");
 });
-
 
 /* MODAL */
 const modalContainer = document.getElementById("modal-container");
@@ -15,12 +14,11 @@ const openModal = () => {
   modalContainer.style.display = "flex";
 
   // scroll
-modal.scrollIntoView({
-  behavior: 'smooth', // Smooth scrolling
-  block: 'center',    // Scroll to the center of the modal
-});
+  modal.scrollIntoView({
+    behavior: "smooth", // Smooth scrolling
+    block: "center", // Scroll to the center of the modal
+  });
 };
-
 
 const closeModal = () => {
   modalContainer.style.display = "none";
@@ -79,111 +77,11 @@ function h5Style() {
   });
 }
 
-// CHARACTERS
-fetch("https://genshin.jmp.blue/materials/talent-book")
-  .then((res) => res.json())
-  .then((data) => {
-    //console.log(data);
-    //console.log(Array.isArray(data));
-
-    // to array
-    const dataArray = Object.values(data);
-    //console.log(dataArray);
-
-    let currentDayBooks = document.getElementById("currentDayBooks");
-
-    dataArray.forEach((book) => {
-      if (book.availability?.includes(week[dayIndex])) {
-        let bookDiv = document.createElement("div");
-        let todaysBooks = book.items[0].name;
-        let title = document.createElement("h5");
-        title.textContent = todaysBooks;
-
-        bookDiv.appendChild(title);
-
-        let todaysCharacters = book.characters;
-
-        todaysCharacters.forEach((char) => {
-          const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
-          const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
-          const charImg = document.createElement("img");
-
-          // either icon
-          charImg.src = charUrl1 || charUrl2;
-          charImg.style.height = "70px";
-          charImg.style.margin = "5px";
-          charImg.alt = char;
-
-          bookDiv.appendChild(charImg);
-        });
-
-        currentDayBooks.appendChild(bookDiv);
-      }
-    });
-
-    h5Style();
-
-    if (!Array.isArray(data)) {
-      return false;
-    }
-  })
-  .catch((error) => console.log(error));
-
-// WEAPONS
-fetch("https://genshin.jmp.blue/materials/weapon-ascension")
-  .then((res) => res.json())
-  .then((data) => {
-    const dataArray2 = Object.values(data);
-    //console.log(dataArray2[1]);
-
-    let currentDayWeapons = document.getElementById("currentDayWeapons");
-
-    dataArray2.forEach((mat) => {
-      if (mat.availability?.includes(week[dayIndex])) {
-        let weaponDiv = document.createElement("div");
-
-        let todaysWeaponMats = mat.items[3].id;
-        //let todaysWeaponMats = mat.items[0].name;
-        console.log('Weapon materials: ', todaysWeaponMats)
-
-        let title2 = document.createElement("h5");
-        title2.textContent = todaysWeaponMats;
-
-        weaponDiv.appendChild(title2);
-
-        let todaysWeapons = mat.weapons;
-        console.log('Todays weapons: ', todaysWeapons)
-        
-        todaysWeapons.forEach((weapon) => {
-          //console.log(weapon);
-
-          const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
-          const imageElement = document.createElement("img");
-
-          imageElement.src = url;
-          imageElement.style.height = "70px";
-          imageElement.style.margin = "2px";
-          imageElement.alt = `${weapon}`;
-
-          weaponDiv.appendChild(imageElement);
-        });;
-        currentDayWeapons.appendChild(weaponDiv);
-    }
-  });
-    h5Style();
-
-    if (!Array.isArray(data)) {
-      return false;
-    }
-  })
-  .catch((error) => console.log(error));
-
 // character search
-async function fetchData() {
+async function fetchData(char) {
   try {
-    const mySearch = document
-      .getElementById("mySearch")
-      .value.toLocaleLowerCase();
+    const mySearch =
+      document.getElementById("mySearch").value.toLowerCase() || char;
 
     mySearch.value = "";
 
@@ -208,21 +106,27 @@ async function fetchData() {
     // search output - text
     const searchOutput = document.getElementById("searchOutput");
     searchOutput.innerHTML = `
-
     <div class="modal-name">
       <h3>${dataArray3[0]}</h3>
       <p>"${dataArray3[1]}"</p>
     </div>
 
-    <ul>
+     ${
+       dataArray3[0].startsWith("Traveler")
+         ? ` <ul>
+         <li>${dataArray3[9]}</li>
+  <li>${dataArray3[4]}</li>
+  <li>Vision: ${dataArray3[1]}</li>
+  <li>Weapon: ${dataArray3[2]}</li>
+  </ul>`
+         : `<ul>
   <li>Nation: ${dataArray3[5]}</li>
   <li>Vision: ${dataArray3[2]}</li>
   <li>Weapon: ${dataArray3[3]}</li>
   <li>Rarity: ${dataArray3[7]}⭐</li>
   <li>Description: ${dataArray3[11]}</li>
-</ul>
-    
-    `;
+</ul>`
+     }`;
 
     // search output - image
     const imgContainer = document.createElement("div");
@@ -241,8 +145,8 @@ async function fetchData() {
     console.log(error);
   }
 }
-mySearch.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+mySearch.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
     e.preventDefault();
     fetchData();
     openModal();
@@ -256,7 +160,115 @@ const searchBtn = document
     openModal();
   });
 
-/* wish banner */
+// CHARACTERS
+let charImg;
+fetch("https://genshin.jmp.blue/materials/talent-book")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const dataArray = Object.values(data);
+
+    let currentDayBooks = document.getElementById("currentDayBooks");
+
+    dataArray.forEach((book) => {
+      if (book.availability?.includes(week[dayIndex])) {
+        let bookDiv = document.createElement("div");
+        let todaysBooks = book.items[0].name;
+        let title = document.createElement("h5");
+        title.textContent = todaysBooks;
+
+        bookDiv.appendChild(title);
+
+        let todaysCharacters = book.characters;
+
+        todaysCharacters.forEach((char) => {
+          const charUrl1 = `https://genshin.jmp.blue/characters/${char}/icon-big`;
+          const charUrl2 = `https://genshin.jmp.blue/characters/${char}/icon`;
+          const charImg = document.createElement("img");
+          charImg.id = "todays-character-img";
+
+          // either icon
+          charImg.src = charUrl1 || charUrl2;
+          charImg.style.height = "70px";
+          charImg.style.margin = "5px";
+          charImg.alt = char;
+
+          bookDiv.appendChild(charImg);
+
+          charImg.addEventListener("click", () => {
+            fetchData(char);
+            openModal();
+          });
+        });
+
+        currentDayBooks.appendChild(bookDiv);
+      }
+    });
+    h5Style();
+    if (!Array.isArray(data)) {
+      return false;
+    }
+  })
+  .catch((error) => console.log(error));
+
+// WEPONS NEW
+fetch("https://genshin.jmp.blue/materials/weapon-ascension")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const dataArray2 = Object.values(data);
+
+    let currentDayWeapons = document.getElementById("currentDayWeapons");
+
+    dataArray2.forEach((mat) => {
+      if (mat.availability?.includes(week[dayIndex])) {
+        let weaponDiv = document.createElement("div");
+
+        //let todaysWeaponMats = mat.items[3].id;
+        let todaysWeaponMats = mat.items[0].name;
+        console.log("Weapon materials: ", todaysWeaponMats);
+
+        let title2 = document.createElement("h5");
+        title2.textContent = todaysWeaponMats;
+
+        weaponDiv.appendChild(title2);
+
+        let todaysWeapons = mat.weapons;
+        console.log("Todays weapons: ", todaysWeapons);
+
+        todaysWeapons.forEach((weapon) => {
+          //console.log(weapon);
+
+          const url = `https://genshin.jmp.blue/weapons/${weapon}/icon`;
+          const imageElement = document.createElement("img");
+
+          imageElement.src = url;
+          imageElement.style.height = "70px";
+          imageElement.style.margin = "2px";
+          imageElement.alt = `${weapon}`;
+
+          weaponDiv.appendChild(imageElement);
+        });
+        currentDayWeapons.appendChild(weaponDiv);
+      }
+    });
+    h5Style();
+
+    if (!Array.isArray(data)) {
+      return false;
+    }
+  })
+  .catch((error) => console.log(error));
+
+// wish banner
 const wishOne = "../assets/wishBanner/5Point2_Phase1_char1.jpg";
 const wishTwo = "../assets/wishBanner/5Point2_Phase1_char2.jpg";
 const wishWeapon = "../assets/wishBanner/5Point2_Phase1_weapon.jpg";
@@ -309,4 +321,3 @@ class WishBanner {
 document.addEventListener("DOMContentLoaded", () => {
   const wishBanner = new WishBanner();
 });
-
