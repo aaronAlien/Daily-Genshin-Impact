@@ -5,59 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="./DGI.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
     <script defer src="./DGI.js"></script>
+    <script
+      src="https://kit.fontawesome.com/c3a7873d94.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Genshin Daily</title>
   </head>
   <nav id="navbar" class="nav">
-<div class="dateTitle">
-  <h1 id="nav-title"><a href="/index.html">Genshin Daily</a></h1>
-  <h2 id="day-display"></h2>
-      </div>
-      <div class="links">
-        <ul id="nav-links">
-          <li><a target="" href="/characters.html">Characters</a></li>
-          <li><a target="_blank" href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481">Check In</a></li>
-          <li><a target="_blank" href="https://act.hoyolab.com/ys/app/interactive-map/index.html">Interactive Map</a></li>
-          <li><a target="_blank" href="https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki">Wiki</a></li>
-        </ul>
-      </div>
-      
-    </nav>
+    <div class="header">
+      <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
+      <h1 id="nav-title">
+        <a href="/index.html"> Genshin Daily </a>
+      </h1>
+      <button
+        id="hamburger-btn"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+      <h2 id="day-display"></h2>
+    </div>
+    <div class="links">
+      <ul id="nav-links">
+        <li><a target="" href="/characters.html">Characters</a></li>
+        <li>
+          <a
+            target="_blank"
+            href="https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481"
+            >Check In</a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://act.hoyolab.com/ys/app/interactive-map/index.html"
+            >Interactive Map</a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki"
+            >Wiki</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
   <body>
-      
+    <!-- MODAL -->
+
+    <div id="modal-container" aria-modal="true" role="dialog">
+      <div class="modal" id="modal">
+        <button id="close-btn">
+          <i
+            class="fa-solid fa-close fa-xl"
+            aria-label="close settings menu"
+          ></i>
+        </button>
+        <div id="searchOutput"></div>
+      </div>
+    </div>
+
     <div class="card">
-  
       <div class="grid">
-        <div class="weapons">
 
-          <p id="currentDayWeapons">
-          </p>
-        </div>
-        <div class="books">
-
-          <p id="currentDayBooks">
-          </p>
-        </div>
-        <div class="search">
-          <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon">
-          <h3 class="boldSubHead">Find a Character </h3>
-          
-          <label for="mySearch"></label>
-          <input type="text" id="mySearch" placeholder=" Wanderer">
-          <button class="btn" id="searchBtn">search</button>
-          <div id="searchOutput">
-
+        <div class="">
+          <div class="search">
+            <h3 class="boldSubHead">Find a Character</h3>
+            <label for="mySearch"></label>
+            <input type="text" id="mySearch" placeholder=" Wanderer" />
+            <button class="btn" id="searchBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="wish" id="wish-banner">
+            
           </div>
         </div>
-      </div>
 
+        <div class="books">
+          <p id="currentDayBooks"></p>
+        </div>
+        <div class="weapons">
+          <p id="currentDayWeapons"></p>
+        </div>
+      </div>
     </div>
   </body>
   <footer id="footer-container">
     <div class="footer-content">
-      <p id="my-tag">project by Aaron H S | not affiliated with HoYoverse - all content copyright of HoYoverse. | built with <a href="https://github.com/genshindev/api" target="_blank">genshin.dev</a></p>
+      <p id="my-tag">
+        project by Aaron H S | not affiliated with HoYoverse - all content
+        copyright of HoYoverse. | built with
+        <a href="https://github.com/genshindev/api" target="_blank"
+          >genshin.dev</a
+        >
+      </p>
       <ul class="social-links">
         <li>
           <a href="https://github.com/aaronAlien" target="_blank">
@@ -65,12 +116,14 @@
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/aaron-shakespeare/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/aaron-shakespeare/"
+            target="_blank"
+          >
             <i class="fab fa-linkedin fa-lg"></i>
           </a>
         </li>
       </ul>
     </div>
   </footer>
-
 </html>
