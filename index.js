@@ -257,9 +257,9 @@ const searchBtn = document
   });
 
 /* wish banner */
-const wishOne = "../assets/wishBanner/5Point2_Phase1_char1.webp";
-const wishTwo = "../assets/wishBanner/5Point2_Phase1_char2.webp";
-const wishWeapon = "../assets/wishBanner/5Point2_Phase1_weapon.webp";
+const wishOne = "../assets/wishBanner/5Point2_Phase1_char1.jpg";
+const wishTwo = "../assets/wishBanner/5Point2_Phase1_char2.jpg";
+const wishWeapon = "../assets/wishBanner/5Point2_Phase1_weapon.jpg";
 
 class WishBanner {
   constructor() {
@@ -284,7 +284,7 @@ class WishBanner {
     
     <img
     src='${this.slides[this.currentIndex]}'
-    alt='ADD ALT'
+    alt='event wish'
     class='carousel-image' />
     <span>${this.slideInfo[this.currentIndex]}</span>
     <span>Until 2024/12/10</span>
