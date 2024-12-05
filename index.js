@@ -269,9 +269,9 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .catch((error) => console.log(error));
 
 // wish banner
-const wishOne = "../assets/wishBanner/5Point2_Phase1_char1.jpg";
-const wishTwo = "../assets/wishBanner/5Point2_Phase1_char2.jpg";
-const wishWeapon = "../assets/wishBanner/5Point2_Phase1_weapon.jpg";
+const wishOne = "assets/wishBanner/5Point2_Phase1_char1.jpg";
+const wishTwo = "assets/wishBanner/5Point2_Phase1_char2.jpg";
+const wishWeapon = "assets/wishBanner/5Point2_Phase1_weapon.jpg";
 
 class WishBanner {
   constructor() {
