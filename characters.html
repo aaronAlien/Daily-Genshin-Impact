@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="stylesheet" href="./index.css" />
-    <script defer src="./index.js"></script>
+    <script defer src="./characters.js"></script>
     <script
       src="https://kit.fontawesome.com/c3a7873d94.js"
       crossorigin="anonymous"
@@ -23,18 +23,13 @@
       <h1 id="nav-title">
         <a href="/index.html"> Genshin Daily </a>
       </h1>
-      <button
-        id="hamburger-btn"
-        aria-label="Toggle Navigation Menu"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
+
       <h2 id="day-display"></h2>
     </div>
+    
     <div class="links">
       <ul id="nav-links">
-        <li><a target="" href="/characters.html">Characters</a></li>
+        <li><a target="_self" href="/index.html">Home</a></li>
         <li>
           <a
             target="_blank"
@@ -73,40 +68,41 @@
         <div id="searchOutput"></div>
       </div>
     </div>
+      <body>
 
-    <div class="card">
-      <div class="grid">
+       <div class="components">
+        <div class="search">
+          <h3 class="">Find a Character</h3>
+          <input type="text" id="mySearch" placeholder=" Wanderer" />
+          <button class="btn" id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+       </div>
 
-        <div class="">
-          <div class="search">
-            <h3 class="boldSubHead">Find a Character</h3>
-            <label for="mySearch"></label>
-            <input type="text" id="mySearch" placeholder=" Wanderer" />
-            <button class="btn" id="searchBtn">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-          <div class="wish" id="wish-banner">
+        <div class="allCharacters">
+          <ul class="boldSubHead" id="vision-list">
+            <button type="button" data-vision="Anemo">Anemo</button>
+            <button type="button" data-vision="Electro">Electro</button>
+            <button type="button" data-vision="Cryo">Cryo</button>
+            <button type="button" data-vision="Geo">Geo</button>
+            <button type="button" data-vision="Dendro">Dendro</button>
+            <button type="button" data-vision="Hydro">Hydro</button>
+          </ul>
+
+          <ul id="character-list">
             
-          </div>
+          </ul>
         </div>
 
-        <div class="books">
-          <p id="currentDayBooks"></p>
-        </div>
-        <div class="weapons">
-          <p id="currentDayWeapons"></p>
-        </div>
-      </div>
-    </div>
-  </body>
+      </body>
   <footer id="footer-container">
     <div class="footer-content">
       <p id="my-tag">
         project by Aaron H S | not affiliated with HoYoverse - all content
         copyright of HoYoverse. | built with
         <a href="https://github.com/genshindev/api" target="_blank"
-          >genshin.dev</a
+          >genshin.dev API</a
         >
       </p>
       <ul class="social-links">
