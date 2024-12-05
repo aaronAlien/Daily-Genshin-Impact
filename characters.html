@@ -9,17 +9,27 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="./DGI.css" />
-    <script defer src="./note.js"></script>
-    <title>all characters</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="./characters.js"></script>
+    <script
+      src="https://kit.fontawesome.com/c3a7873d94.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Genshin Daily - Characters</title>
   </head>
   <nav id="navbar" class="nav">
-    <a href="/index.html">
-      <h1 id="nav-title">Genshin Daily</h1>
-    </a>
+    <div class="header">
+      <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
+      <h1 id="nav-title">
+        <a href="/Daily-Genshin-Impact/"> Genshin Daily </a>
+      </h1>
 
+      <h2 id="day-display"></h2>
+    </div>
+    
     <div class="links">
       <ul id="nav-links">
+        <li><a target="_self" href="/Daily-Genshin-Impact/">Home</a></li>
         <li>
           <a
             target="_blank"
@@ -45,31 +55,47 @@
     </div>
   </nav>
   <body>
-    <div class="dateTitle">
-      <h2 id="day-display"></h2>
-    </div>
-    <div class="card">
-      <div class="grid">
-        <!--<div class="search">
-          <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
-          <h3 class="boldSubHead">Find a Character</h3>
+    <!-- MODAL -->
 
-          <label for="mySearch"></label>
-          <input type="text" id="mySearch" placeholder=" Wanderer" />
-          <button class="btn" id="searchBtn">search</button>
-          <div id="searchOutput"></div>
-        </div>-->
-
-        <div class="allCharacters">
-          <h3 class="boldSubHead">Characters: </h3>
-
-          <div id="charactersDisplay">
-            <!--books here-->
-          </div>
-        </div>
+    <div id="modal-container" aria-modal="true" role="dialog">
+      <div class="modal" id="modal">
+        <button id="close-btn">
+          <i
+            class="fa-solid fa-close fa-xl"
+            aria-label="close settings menu"
+          ></i>
+        </button>
+        <div id="searchOutput"></div>
       </div>
     </div>
-  </body>
+      <body>
+
+       <div class="components">
+        <div class="search">
+          <h3 class="">Find a Character</h3>
+          <input type="text" id="mySearch" placeholder=" Wanderer" />
+          <button class="btn" id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+       </div>
+
+        <div class="allCharacters">
+          <ul class="boldSubHead" id="vision-list">
+            <button type="button" data-vision="Anemo">Anemo</button>
+            <button type="button" data-vision="Electro">Electro</button>
+            <button type="button" data-vision="Cryo">Cryo</button>
+            <button type="button" data-vision="Geo">Geo</button>
+            <button type="button" data-vision="Dendro">Dendro</button>
+            <button type="button" data-vision="Hydro">Hydro</button>
+          </ul>
+
+          <ul id="character-list">
+            
+          </ul>
+        </div>
+
+      </body>
   <footer id="footer-container">
     <div class="footer-content">
       <p id="my-tag">
