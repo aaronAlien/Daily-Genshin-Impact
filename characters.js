@@ -1,3 +1,11 @@
+/* NAV */
+const hamburger = document.getElementById("hamburger-btn");
+
+hamburger.addEventListener("click", function () {
+  const navMenu = document.querySelector(".links ul");
+  navMenu.classList.toggle("active");
+});
+
 /* MODAL */
 
 const modalContainer = document.getElementById("modal-container");

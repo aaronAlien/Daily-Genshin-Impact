@@ -15,15 +15,15 @@ const openModal = () => {
 
   // scroll
   modal.scrollIntoView({
-    behavior: "smooth", // Smooth scrolling
-    block: "center", // Scroll to the center of the modal
+    behavior: "smooth", 
+    block: "center",
   });
 };
 
 const closeModal = () => {
   modalContainer.style.display = "none";
 
-  //clear search
+
   mySearch.value = "";
 
   const imgContainer = document.querySelector(".char-img-container");
@@ -134,7 +134,7 @@ async function fetchData(char) {
     imgContainer.style.maxWidth = "100%";
 
     const img = document.createElement("img");
-    img.style.width = "350px";
+    img.style.width = "";
     img.style.height = "auto";
     img.style.objectFit = "cover";
     img.src = url;
