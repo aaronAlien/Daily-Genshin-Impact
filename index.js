@@ -15,15 +15,15 @@ const openModal = () => {
 
   // scroll
   modal.scrollIntoView({
-    behavior: "smooth", // Smooth scrolling
-    block: "center", // Scroll to the center of the modal
+    behavior: "smooth", 
+    block: "center",
   });
 };
 
 const closeModal = () => {
   modalContainer.style.display = "none";
 
-  //clear search
+
   mySearch.value = "";
 
   const imgContainer = document.querySelector(".char-img-container");
@@ -134,7 +134,7 @@ async function fetchData(char) {
     imgContainer.style.maxWidth = "100%";
 
     const img = document.createElement("img");
-    img.style.width = "350px";
+    img.style.width = "";
     img.style.height = "auto";
     img.style.objectFit = "cover";
     img.src = url;
@@ -269,17 +269,18 @@ fetch("https://genshin.jmp.blue/materials/weapon-ascension")
   .catch((error) => console.log(error));
 
 // wish banner
-const wishOne = "assets/wishBanner/5Point2_Phase1_char1.jpg";
-const wishTwo = "assets/wishBanner/5Point2_Phase1_char2.jpg";
-const wishWeapon = "assets/wishBanner/5Point2_Phase1_weapon.jpg";
+const wishOne = "assets/wishBanner/5Point2_Phase2_char1.jpg";
+const wishTwo = "assets/wishBanner/5Point2_Phase2_char2.jpg";
+const wishWeapon = "assets/wishBanner/5Point2_Phase2_weapon.jpg";
+
 
 class WishBanner {
   constructor() {
     this.slides = [wishOne, wishTwo, wishWeapon];
     this.slideInfo = [
-      `Boosted Drop Rate for "Skyborne Arbiter" Chasca (Anemo)!`,
-      `Boosted Drop Rate for "Spectacle of Phantasmagoria" Lyney (Pyro)`,
-      `Boosted Drop Rate for Astral Vulture's Crimson Plumage (Bow) and The First Great Magic (Bow)!`,
+      `Version 5.2 Phase 2 | 4-star characters: Fischl, Yaoyao, and Heizou.`,
+      `Version 5.2 Phase 2 | 4-star characters: Fischl, Yaoyao, and Heizou.`,
+      `Version 5.2 Phase 2 | 4-star characters: Fischl, Yaoyao, and Heizou.`,
     ];
 
     this.currentIndex = 0;
@@ -299,7 +300,7 @@ class WishBanner {
     alt='event wish'
     class='carousel-image' />
     <span>${this.slideInfo[this.currentIndex]}</span>
-    <span>Until 2024/12/10</span>
+    <span>images: Hoyverse</span>
     </div>
     `;
   }
