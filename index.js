@@ -273,6 +273,7 @@ const wishOne = "assets/wishBanner/5Point2_Phase2_char1.jpg";
 const wishTwo = "assets/wishBanner/5Point2_Phase2_char2.jpg";
 const wishWeapon = "assets/wishBanner/5Point2_Phase2_weapon.jpg";
 
+
 class WishBanner {
   constructor() {
     this.slides = [wishOne, wishTwo, wishWeapon];
