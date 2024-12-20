@@ -11,27 +11,16 @@
     />
     <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js"></script>
-    <script
-      src="https://kit.fontawesome.com/c3a7873d94.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/c3a7873d94.js" crossorigin="anonymous"></script>
     <title>Genshin Daily</title>
   </head>
   <nav id="navbar" class="nav">
     <div class="header">
-      <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
-      <h1 id="nav-title">
-        <a href="/index.html"> Genshin Daily </a>
-      </h1>
-      <button
-        id="hamburger-btn"
-        aria-label="Toggle Navigation Menu"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
-      <h2 id="day-display"></h2>
-    </div>
+      <div id="nav-title">
+        <h1>
+          <a href="/index.html"> Genshin Daily </a>
+        </h1>
+      </div>
     <div class="links">
       <ul id="nav-links">
         <li><a target="" href="/Daily-Genshin-Impact/characters">Characters</a></li>
@@ -57,6 +46,17 @@
           >
         </li>
       </ul>
+    </div>
+
+      <div id="paimon"><img src="./assets/paimonIcon.png" alt="paimon icon" /></div>
+      <button
+        id="hamburger-btn"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false" 
+      >
+      <i class="fa-solid fa-bars"></i>
+      </button>
+      <h2 id="day-display"></h2>
     </div>
   </nav>
   <body>
@@ -103,7 +103,7 @@
   <footer id="footer-container">
     <div class="footer-content">
       <p id="my-tag">
-        project by Aaron H S | not affiliated with HoYoverse - all content
+        project by Aaron H S | not affiliated with HoYoverse - images and info
         copyright of HoYoverse. | built with
         <a href="https://github.com/genshindev/api" target="_blank"
           >genshin.dev</a

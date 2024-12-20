@@ -131,10 +131,11 @@ async function fetchData(char) {
     // search output - image
     const imgContainer = document.createElement("div");
     imgContainer.className = "char-img-container";
-    imgContainer.style.maxWidth = "100%";
+    imgContainer.style.maxWidth = "90%";
 
     const img = document.createElement("img");
-    img.style.width = "";
+
+    img.style.maxWidth = "250px";
     img.style.height = "auto";
     img.style.objectFit = "cover";
     img.src = url;

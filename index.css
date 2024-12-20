@@ -46,6 +46,9 @@ body {
   top: 5%;
   left: 90%;
   margin: 0;
+  background: transparent;
+  border: none;
+  color: var(--color-g);
 }
 
 #modal-container {
@@ -66,9 +69,11 @@ body {
   align-items: center;
   justify-content: center;
   width: 70%;
-  margin: 0;
+  margin: 1rem auto;
+  max-height: 60vh;
   padding: 1rem 2rem;
   border-radius: 3.5rem;
+  border: 1px solid rgba(144, 85, 207, 0.9);
   background: rgb(193, 193, 193);
   background: linear-gradient(
     16deg,
@@ -77,10 +82,13 @@ body {
     rgba(73, 73, 74, 1) 66%,
     rgba(47, 47, 48, 1) 92%
   );
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.443);
+  box-shadow: 0 0 3px rgba(229, 229, 229, 0.443);
+  overflow: scroll;
 }
 
-.char-img-container {
+.modal img {
+  display: flex;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -93,9 +101,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  max-width: 50%;
-  border-top: 2px solid rgba(144, 85, 207, 0.9);
-  border-bottom: 2px solid rgba(144, 85, 207, 0.9);
+  max-width: 80%;
   border-radius: 0.9rem;
   padding: 1rem 1.5rem;
 }
@@ -126,7 +132,6 @@ body {
 .modal-name h3 {
   font-size: 4rem;
   font-weight: bold;
-  text-decoration: underline;
   color: var(--color-g);
 }
 
@@ -135,7 +140,7 @@ body {
   color: var(--color-g);
 }
 
-#paimon {
+#paimon img {
   width: 100px;
 }
 
@@ -143,43 +148,46 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.8rem;
-  margin-left: 4rem;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.header #paimon img, .header #nav-title a {
+  margin: 0 4rem;
 }
 
 #nav-title a {
   font-family: "Arvo";
   font-size: 4rem;
-  color: var(--color-g);
+  text-align: center;
+  color: var(--color-f);
   letter-spacing: 2px;
   text-decoration: none;
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 0.6rem;
   color: var(--color-g);
   width: 100%;
-  padding: 1.1rem 2.8rem;
+  padding: 0.8rem 0;
   top: 0;
   left: 0;
-  position: relative;
   z-index: 10;
   background: rgba(47, 47, 48, 0.7);
-  border-radius: 0 0 60px 60px;
-  box-shadow: 0 0 10px rgba(193, 193, 193, 0.443);
-  border-bottom: 0.5px solid rgba(193, 193, 193, 0.443);
+  border-bottom: 1px solid rgba(54, 132, 201, 0.439);
+  border-radius: 0 0 1.8rem 1.8rem;
 }
 
 #hamburger-btn {
   display: none;
-  font-size: 2rem;
   cursor: pointer;
-  background: none;
+  background: transparent;
   border: none;
+  margin: 0.8rem;
   font-size: 2rem;
-  color: var(--light-text);
+  color: var(--color-f);
 }
 
 .links ul.active,
@@ -199,43 +207,30 @@ body {
   border-radius: 1rem;
 }
 
-ul {
-  list-style-type: none;
-}
-
 .nav ul {
   display: flex;
   justify-content: space-evenly;
-  text-align: center;
-  font-size: 1.3rem;
-  letter-spacing: 2px;
-  gap: 0.8rem;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 0.5rem;
 }
 
 .nav li a {
+  text-align: center;
   color: var(--color-g);
   text-decoration: none;
-  background-color: var(--color-a);
-  box-shadow: 0 0 10px var(--color-a);
   padding: 0.6rem 1rem;
-  border-radius: 1rem;
+  font-size: 1.3rem;
 }
 
 .nav li a:hover {
-  box-shadow: 0 0 5px rgb(144, 85, 207);
+  color: var(--color-f);
+  border-bottom: 1px solid var(--color-f);
   transition: all 0.4s ease-in-out;
 }
 
 #day-display {
   display: none;
-  font-size: 1.3rem;
-  border-radius: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  margin: 0 auto;
-  text-decoration: underline;
-  color: var(--color-a);
 }
 
 .card {
@@ -268,10 +263,12 @@ ul {
 
 .weapons {
   grid-area: 3 / 1 / 3 / 4;
+  border: 1px solid rgba(54, 132, 201, 0.439);
 }
 
 .books {
   grid-area: 1 / 2 / 3 / 4;
+  border: 1px solid rgba(54, 132, 201, 0.439);
 }
 
 .weapons,
@@ -288,9 +285,9 @@ ul {
     rgba(73, 73, 74, 0.8) 66%,
     rgba(47, 47, 48, 0.7) 92%
   );
-  border-radius: 3.5rem;
+  border: 1px solid rgba(54, 132, 201, 0.439);
+  border-radius: 1.8rem;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.443);
-  border: transparent;
   color: var(--color-h);
   padding: 1rem 15px;
   overflow: auto;
@@ -348,7 +345,7 @@ ul {
 .components .search {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 50%;
   margin: 0 auto;
   gap: 2rem;
   align-items: center;
@@ -358,7 +355,7 @@ ul {
 .components .search label,
 .components .search button {
   display: flex;
-  margin: 0;
+justify-content: space-evenly;
 }
 
 #vision-list {
@@ -384,6 +381,7 @@ ul {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .character-item {
@@ -412,40 +410,38 @@ ul {
 .boldSubHead {
   font-weight: bold;
   font-size: 1.4rem;
-  color: #ffffff;
+  color: var(--color-a);
   border: transparent;
   width: 50%;
   margin: 0 auto;
   padding: 0.8rem 2rem;
 }
 
-input {
-  padding: 0.5rem 0.8rem;
-  font-size: 1.3rem;
+.search input {
+  padding: 0 1rem;
+  font-size: 1.2rem;
   font-family: var(--BODY-font-family);
-  margin: 1rem 2rem;
+  margin: 1rem;
   outline: none;
   border: none;
-  background: var(--color-d);
+  background: rgba(255, 255, 255, 0.687);
   border-radius: 1rem;
   box-shadow: 0 0 3px var(--color-a);
 }
 
-button {
+.search #searchBtn {
   padding: 0.6rem 1rem;
   font-size: 1.3rem;
   font-family: var(--BODY-font-family);
   margin: 1rem auto;
-  outline: none;
-  border: transparent;
-  background-color: rgba(144, 85, 207, 0.5);
-  box-shadow: 0 0 3px var(--color-a);
-  border-radius: 1rem;
-  color: #ffffff;
+  border: none;
+  background: transparent;
+  color: rgb(144, 85, 207);
+  cursor: pointer;
 }
 
-button:hover {
-  box-shadow: 0 0 5px rgb(144, 85, 207);
+.search searchBtn:hover {
+  color: var(--color-d);
   transition: all 0.4s ease-in-out;
 }
 
@@ -500,12 +496,17 @@ footer {
   color: var(--color-a);
 }
 
+
 @media (max-width: 1024px) {
+
+  body {
+    display: block;
+  }
+
   .nav ul,
   .nav li a {
     flex-direction: column;
     align-items: center;
-
     justify-content: center;
     font-size: 0.8rem;
   }
@@ -529,25 +530,23 @@ footer {
   .books {
     grid-area: 1 / 2 / 3 / 5;
   }
-}
-
-@media (max-width: 768px) {
-  body {
-    display: block;
-  }
 
   .header {
-    gap: 0.6rem;
-    margin-left: 0;
-    width: 100%;
+    margin-top: .8rem;
+    justify-content: center;
+    flex-direction: column;
   }
 
-  #paimon {
-    max-width: 50px;
-  }
+  #paimon img {
+ max-width: 50px;
+}
 
   #nav-title a {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+  }
+
+  .header #paimon img, .header #nav-title a {
+    margin: 0 auto;
   }
 
   #hamburger-btn {
@@ -555,8 +554,8 @@ footer {
     position: absolute;
     top: 45%;
     left: 80%;
-    padding: 0 .5rem;
-    margin: .5rem;
+    padding-right: 1.5rem;
+    margin: 0.5rem;
   }
 
   .nav {
@@ -566,7 +565,7 @@ footer {
     align-items: center;
     border-radius: 0;
     width: 100%;
-    gap: 0;
+    padding: 0.5rem 1rem;
   }
 
   .links ul {
@@ -614,7 +613,14 @@ footer {
   }
 
   .grid .search {
-    display: none;
+    padding: .5rem;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .boldSubHead {
+    width: 100%;
   }
 
   .grid #wish-banner {
@@ -623,22 +629,23 @@ footer {
 
   #close-btn {
     top: -10%;
-    left: 90%;
-    padding: 0.5rem;
+    left: 80%;
+    padding: 0.2rem;
   }
 
-  #modal-container,
-  .modal {
+  #modal-container {
     width: 100%;
     margin: 0;
   }
 
   .modal {
+    width: 90%;
     flex-direction: column;
-    padding: 1rem 0;
-    margin: 0 auto;
+    padding: 0 .8rem;
+    margin: .5rem auto;
     position: absolute;
     top: 100px;
+    max-height: 80vh;
   }
 
   .modal #searchOutput {
@@ -648,20 +655,31 @@ footer {
   }
 
   #searchOutput ul {
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
     border: none;
+    gap: 0;
   }
 
-
   .modal-name h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding: 0 .5rem;
+    margin-top: 2.5rem;
+    text-align: center;
   }
 
   .modal-name p {
     font-size: 1rem;
   }
 
+
+  .char-img-container img {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin: 0 auto;
+  }
+  
   .search {
     display: flex;
     flex-direction: column;
@@ -706,5 +724,26 @@ footer {
 
   footer {
     margin-top: 1rem;
+    font-size: .6rem;
+  }
+
+  .links ul.active,
+  .links li a.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    text-align: center;
+    font-size: .8rem;
+    gap: 0.8rem;
+    top: 8%;
+    left: 50%;
+    width: 50%;
+    z-index: 50;
+    background-color: #2f2f30;
+    padding: 0.6rem 0;
+    font-weight: bold;
+    border-radius: 0.5rem 0 0 0;
   }
 }
