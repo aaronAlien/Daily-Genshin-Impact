@@ -19,22 +19,11 @@
   </head>
   <nav id="navbar" class="nav">
     <div class="header">
-      <img id="paimon" src="./assets/paimonIcon.png" alt="paimon icon" />
-      <h1 id="nav-title">
-        <a href="/index.html"> Genshin Daily </a>
-      </h1>
-      <h2 id="day-display"></h2>
-              <button
-        id="hamburger-btn"
-        aria-label="Toggle Navigation Menu"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
-
-
-    </div>
-
+      <div id="nav-title">
+        <h1>
+          <a href="/index.html"> Genshin Daily </a>
+        </h1>
+      </div>
     <div class="links">
       <ul id="nav-links">
         <li><a target="" href="/Daily-Genshin-Impact/characters">Characters</a></li>
@@ -62,6 +51,16 @@
       </ul>
     </div>
 
+      <div id="paimon"><img src="./assets/paimonIcon.png" alt="paimon icon" /></div>
+      <button
+        id="hamburger-btn"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false" 
+      >
+      <i class="fa-solid fa-bars"></i>
+      </button>
+      <h2 id="day-display"></h2>
+    </div>
   </nav>
   <body>
     <!-- MODAL -->
@@ -90,14 +89,14 @@
        </div>
 
         <div class="allCharacters">
-          <ul class="boldSubHead" id="vision-list">
+          <!--<ul class="boldSubHead" id="vision-list">
             <button type="button" data-vision="Anemo">Anemo</button>
             <button type="button" data-vision="Electro">Electro</button>
             <button type="button" data-vision="Cryo">Cryo</button>
             <button type="button" data-vision="Geo">Geo</button>
             <button type="button" data-vision="Dendro">Dendro</button>
             <button type="button" data-vision="Hydro">Hydro</button>
-          </ul>
+          </ul>-->
 
           <ul id="character-list">
             
@@ -108,7 +107,7 @@
   <footer id="footer-container">
     <div class="footer-content">
       <p id="my-tag">
-        project by Aaron H S | not affiliated with HoYoverse - all content
+        project by Aaron H S | not affiliated with HoYoverse - images and info
         copyright of HoYoverse. | built with
         <a href="https://github.com/genshindev/api" target="_blank"
           >genshin.dev API</a
