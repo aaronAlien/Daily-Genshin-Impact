@@ -70,6 +70,7 @@ body {
   justify-content: center;
   width: 70%;
   margin: 1rem auto;
+  max-height: 60vh;
   padding: 1rem 2rem;
   border-radius: 3.5rem;
   border: 1px solid rgba(144, 85, 207, 0.9);
@@ -82,6 +83,7 @@ body {
     rgba(47, 47, 48, 1) 92%
   );
   box-shadow: 0 0 3px rgba(229, 229, 229, 0.443);
+  overflow: scroll;
 }
 
 .modal img {
@@ -639,10 +641,11 @@ footer {
   .modal {
     width: 90%;
     flex-direction: column;
-    padding: 1rem 0;
-    margin: 0 auto;
+    padding: 0 .8rem;
+    margin: .5rem auto;
     position: absolute;
     top: 100px;
+    max-height: 80vh;
   }
 
   .modal #searchOutput {
@@ -660,7 +663,8 @@ footer {
 
   .modal-name h3 {
     font-size: 1.8rem;
-    padding: 0.5rem;
+    padding: 0 .5rem;
+    margin-top: 2.5rem;
     text-align: center;
   }
 
