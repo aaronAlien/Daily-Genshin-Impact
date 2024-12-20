@@ -134,6 +134,7 @@ async function fetchData(char) {
     imgContainer.style.maxWidth = "90%";
 
     const img = document.createElement("img");
+
     img.style.maxWidth = "250px";
     img.style.height = "auto";
     img.style.objectFit = "cover";

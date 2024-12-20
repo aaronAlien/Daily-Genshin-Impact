@@ -498,6 +498,7 @@ footer {
 
 
 @media (max-width: 1024px) {
+
   body {
     display: block;
   }
@@ -538,7 +539,7 @@ footer {
 
   #paimon img {
  max-width: 50px;
-  }
+}
 
   #nav-title a {
     font-size: 1.8rem;
@@ -630,7 +631,6 @@ footer {
     top: -10%;
     left: 80%;
     padding: 0.2rem;
-
   }
 
   #modal-container {
@@ -672,13 +672,14 @@ footer {
     font-size: 1rem;
   }
 
+
   .char-img-container img {
     display: flex;
     justify-content: center;
     width: 40%;
     margin: 0 auto;
   }
-
+  
   .search {
     display: flex;
     flex-direction: column;
